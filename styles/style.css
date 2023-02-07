@@ -1,13 +1,8 @@
-.cta-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  border-radius: 25px;
-  cursor: pointer;
+#mainlanding {
+    text-align: center;
+    /* later try to make our logo the background
+    currently not displaying correctly probably because overwritten by bootstrap CSS
+    https://www.w3schools.com/cssref/pr_background-image.php 
+    background-image: url("images/CASA_img.jpg");
+    background-color: black; */
 }
-

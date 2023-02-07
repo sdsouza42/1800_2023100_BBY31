@@ -15,132 +15,102 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- Other libraries go here -->
 
-    <!-- Link to styles of your own -->
-    <style>
-        .navl {
-            display:flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            align-items: center;
-        }
-    </style>
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+    <!-- Our own CSS and JS-->
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="styles/style.css"></script>
 
 </head>
 
-<body>
-
 <!--https://getbootstrap.com/docs/5.1/getting-started/introduction/-->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Casa</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
+<body>
+    
+    <!-- nav bar code -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
 
-        <div class="collapse navbar-collapse" id="navbarsExample05">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Notifications</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link active" href="#">My list</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link active" href="#">Hire Help</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <!-- Excess code set aside for now
-            </li>
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-            <ul class="dropdown-menu" aria-labelledby="dropdown05">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <a class="navbar-brand" href="index.html">CASA</a>
+
+            <!-- in future replace the link index.html with a link to the user profile page -->
+            <a href="index.html"><img src="images/Icon_UserProfile.png" alt="Icon_UserProfile"></a> 
+
+            <!-- nav bar drop down menu -->
+            <div class="collapse navbar-collapse" id="navbarsExample05">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Notifications</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active" href="#">My list</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active" href="#">Hire Help</a>
+
+                <!-- Excess code set aside for now
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown05">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+                </li>-->
+                
             </ul>
-            </li>-->
-            
-        </ul>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin: 0 !important;">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Login/Register</a>
-            </li>
-        </ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin: 0 !important;">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Login/Register</a>
+                </li>
+            </ul>
+            </div>
         </div>
-    </div>
     </nav>
 
 
-
-
-<div class="p-5 mb-4 bg-white rounded-3">
- 
-    <div class="container-fluid py-5">
-      <h1 class="display-5 fw-bold">Welcome to CASA!</h1>
-      <button class="btn btn-primary btn-lg" type="button"> Sign Up</button>
-
+    <div id="mainlanding" class="p-5 mb-4 bg-white rounded-3">
+        <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Welcome to CASA!</h1>
+        <button class="btn btn-primary btn-lg" type="button"> Sign Up</button>
+        </div>
     </div>
-  </div>
-<div class="card-group">
-  <div class="card">
-    <img src="images/CASA_img.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">CASA</h5>
-      <p class="card-text">We are your private housekeeper and service you in your needs! Feel free to contact us and customize your preferences. </p>
-      <p class="card-text"><small class="text-muted">Last updated 5 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="images/professional_img.jpeg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Be Professional</h5>
-      <p class="card-text">Our help force is always ready for you to solve your house issues caused by extreme weather! 
-      Over a thousand institutions have deployed locally to you.</p>
-      <p class="card-text"><small class="text-muted">Last updated 1 hour ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="images/functions_img.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Powerful & Useful</h5>
-      <p class="card-text">CASA contains various features to achieve your purpose and make your house safer and prettier! </p>
-      <p class="card-text"><small class="text-muted">Last updated 5 hours ago</small></p>
-    </div>
-  </div>
-</div>
 
-  
+    <!-- Commented this out for now because I think the current assignment is to just make the skeleton show on our Figma    
+    <div class="card-group">
+        <div class="card">
+            <img src="images/CASA_img.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">CASA</h5>
+            <p class="card-text">We are your private housekeeper and service you in your needs! Feel free to contact us and customize your preferences. </p>
+            <p class="card-text"><small class="text-muted">Last updated 5 mins ago</small></p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/professional_img.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">Be Professional</h5>
+            <p class="card-text">Our help force is always ready for you to solve your house issues caused by extreme weather! 
+            Over a thousand institutions have deployed locally to you.</p>
+            <p class="card-text"><small class="text-muted">Last updated 1 hour ago</small></p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/functions_img.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">Powerful & Useful</h5>
+            <p class="card-text">CASA contains various features to achieve your purpose and make your house safer and prettier! </p>
+            <p class="card-text"><small class="text-muted">Last updated 5 hours ago</small></p>
+            </div>
+        </div>
+    </div> 
+-->
 
 <!--CTA (Call to action) (Felix)--> 
-<div class="container col-xl-10 col-xxl-8 px-4 py-5">
-    <div class="row align-items-center g-lg-5 py-5">
-      <div class="col-lg-7 text-center text-lg-start">
-        <h1 class="display-4 fw-bold lh-1 mb-3">Vertically centered hero sign-up form</h1>
-        <p class="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
-      </div>
-      <div class="col-md-10 mx-auto col-lg-5">
-        <form class="p-4 p-md-5 border rounded-3 bg-light">
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-          </div>
-          <div class="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
-          </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
-          <hr class="my-4">
-          <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
-        </form>
-      </div>
-    </div>
-  </div>
+
 
 
 
