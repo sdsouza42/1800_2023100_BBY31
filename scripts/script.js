@@ -1,4 +1,3 @@
-function sayHello() {
+// function sayHello() { //sayHello();
     
-}
-//sayHello();
+// }
