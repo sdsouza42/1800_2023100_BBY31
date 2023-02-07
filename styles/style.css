@@ -21,3 +21,19 @@
     max-height: 60pt;
     display: block;
 }
+
+#cta-popup {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    left: 10%;
+    right: 10%;
+    opacity: 0.9;
+    border: solid;
+    background-color: aliceblue;
+    justify-content: center;
+    align-items: center;
+}
