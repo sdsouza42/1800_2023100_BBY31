@@ -1,25 +1,31 @@
 #mainlanding {
     text-align: center;
-    /* later try to make our logo the background
-    currently not displaying correctly probably because overwritten by bootstrap CSS
-    https://www.w3schools.com/cssref/pr_background-image.php 
     background-image: url("images/CASA_img.jpg");
-    background-color: black; */
+    opacity: 0.2;
 }
 
-.footer {
+#topnavbar {
     position: fixed;
-    bottom: 0;
+    top: 0;
     background-color: #D9D9D9;
-    height: 60pt;
+    height: 53px;
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.footer a img {
-    max-height: 60pt;
-    display: block;
+#topnavbar p {
+    margin-top: 15px;
+}
+
+#bottomnavbar {
+    position: fixed;
+    bottom: 0;
+    background-color: #D9D9D9;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 #cta-popup {
