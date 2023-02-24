@@ -22,6 +22,22 @@
     justify-content: space-between;
 }
 
+#directory {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+
+
+
 #cta-popup {
     text-align: center;
     justify-content: center;
