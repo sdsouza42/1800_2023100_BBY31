@@ -12,11 +12,12 @@ const fs = require("fs");
 app.use("/js", express.static("./public/js")); /* /js is a virtual absolute path, prevents others seeing directory path, allows changing real path w/o changing other references*/
 app.use("/css", express.static("./public/css"));
 app.use("/img", express.static("./public/img"));
+app.use("/html", express.static("./app/html"));
 
 app.get("/", function (req, res) {
     //console.log(process.env);
     // retrieve and send an HTML document from the file system
-    let doc = fs.readFileSync("./app/html/template default do not edit this.html", "utf8");
+    let doc = fs.readFileSync("./app/html/indexTemporary.html", "utf8"); // this is the html file CASA.js opens
     res.send(doc);
 });
 

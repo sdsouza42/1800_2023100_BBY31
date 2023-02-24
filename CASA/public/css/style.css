@@ -1,10 +1,4 @@
-#mainlanding {
-    text-align: center;
-    background-image: url("images/CASA_img.jpg");
-    opacity: 0.2;
-}
-
-#topnavbar {
+.topnavbar {
     position: fixed;
     top: 0;
     background-color: #D9D9D9;
@@ -14,11 +8,11 @@
     justify-content: space-between;
 }
 
-#topnavbar p {
+.topnavbar p {
     margin-top: 15px;
 }
 
-#bottomnavbar {
+.bottomnavbar {
     position: fixed;
     bottom: 0;
     background-color: #D9D9D9;
