@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
-<head>
-    <title>My BCIT Project</title>
+  <head>
+    <title>CASA</title>
     <meta name="comp1800 template" content="My 1800 App">
-
+      
+    <link href="/img/CASA_img.jpg" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+      
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,16 +19,12 @@
     <!-- Other libraries go here -->
 
     <!-- Our own CSS and JS-->
-    <link rel="stylesheet" href="./styles/style.css">
-    <script src="styles/style.css"></script>
-
-</head>
-
-<!--https://getbootstrap.com/docs/5.1/getting-started/introduction/-->
-
-<body>
-    
-    <!-- nav bar code -->
+    <script src="js/client.js"></script>
+    <script src="js/myscripts.js"></script>
+      
+  </head>
+  <body>
+       <!-- nav bar code -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
 
@@ -113,11 +112,13 @@
 -->
 
     <!-- Call to action --> 
-    <!-- <div id="cta-popup">
-        <h1>Hello, this is JS Challenge #2</h1>
-			<input type="button" value="Say Hello" onclick="sayHellow()"> 
-            <script src="./myscript.js"></script>
-    </div> -->
+    <div id="cta-popup">
+		<br> <br> <br> <br> 
+        <h1>Save $100 Today!</h1>
+        <br>
+        <input type="button" value="Continue" onclick="hidePopup()"> 
+        <script src="./scripts/script.js"></script>
+    </div>
 
 
 
@@ -126,20 +127,21 @@
     <footer class="footer">
         <!-- links to the main page "index.html" -->
         <a id="main" href="index.html">
-            <img src="images/Icon_Storm.png" alt="Icon_Storm">
+            <img src="/img/Icon_Storm.png" alt="Icon_Storm">
         </a>
 
         <!-- in future replace the link index.html with a link to the saved to do page -->
         <a id="todo" href="index.html">
-            <img src="images/Icon_Tools.png" alt="Icon_Tools">
+            <img src="/img/Icon_Tools.png" alt="Icon_Tools">
         </a>
 
         <!-- in future replace the link index.html with a link to the hire help page -->
         <a id="hire" href="index.html">
-            <img src="images/Icon_Hire.png" alt="Icon_Hire">
+            <img src="/img/Icon_Hire.png" alt="Icon_Hire">
         </a>
     </footer>
 
-</body>
+    
 
+</body>
 </html>
