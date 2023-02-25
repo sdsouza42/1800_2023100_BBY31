@@ -38,40 +38,42 @@
     <div class="mainContent">
         <!--Grid container to enable the hidden function-->
         <div class="container">
-            <div class="row d-flex flex-column align-items-center">
-                <!--Will need some js which allows "select all" to select all filters-->
-                <!--Select all-->
-                <div class="d-flex flex-grow-1 justify-content-center">
-                    <input type="checkbox" class="btn-check" id="btn-check-outlined" checked autocomplete="off">
-                    <label class="btn btn-outline-secondary" for="btn-check-outlined">Select all</label><br>
-                </div>
-                <!--More filters-->
-                <div class="row d-flex flex-column align-items-center">
-                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#moreFilters" role="button" aria-expanded="false" aria-controls="moreFilters">
-                        More Filters
-                      </a>
+            <div class="row">
+                <div class="d-flex flex-column align-items-center">
+                    <!--Will need some js which allows "select all" to select all filters-->
+                    <!--Select all-->
+                    <div>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined" checked autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btn-check-outlined">Select all</label><br>
+                    </div>
+                    <!--More filters-->
+                    <div>
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#moreFilters" role="button" aria-expanded="false" aria-controls="moreFilters">
+                            More Filters
+                        </a>
+                    </div>
                 </div>
             </div>
             <!--Hidden until more options/filters are taps-->
-            <div class="container collapse" id="moreFilters">
-                <div class="row d-flex flex-column align-items-center">
+            <div class="row container collapse" id="moreFilters">
+                <div class="d-flex flex-column align-items-center">
                     <!--filter-->
-                    <div class="d-flex flex-grow-1 justify-content-center">
+                    <div>
                         <input type="checkbox" class="btn-check" id="btn-check-1-outlined" checked autocomplete="off">
                         <label class="btn btn-outline-secondary" for="btn-check-1-outlined">Plumber</label><br>
                     </div>
                     <!--filter-->
-                    <div class="d-flex flex-grow-1 justify-content-center">
+                    <div>
                         <input type="checkbox" class="btn-check" id="btn-check-2-outlined" checked autocomplete="off">
                         <label class="btn btn-outline-secondary" for="btn-check-2-outlined">Electrician</label><br>
                     </div>
                     <!--filter-->
-                    <div class="d-flex flex-grow-1 justify-content-center">
+                    <div>
                         <input type="checkbox" class="btn-check" id="btn-check-3-outlined" checked autocomplete="off">
                         <label class="btn btn-outline-secondary" for="btn-check-3-outlined">General Work</label><br>
                     </div>
                     <!--filter-->
-                    <div class="d-flex flex-grow-1 justify-content-center">
+                    <div>
                         <input type="checkbox" class="btn-check" id="btn-check-4-outlined" checked autocomplete="off">
                         <label class="btn btn-outline-secondary" for="btn-check-4-outlined">Lawncare</label><br>
                     </div>
