@@ -58,3 +58,20 @@
     justify-content: center;
     align-items: center;
 }
+
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+
+.container_logo_img {
+    text-align: center;
+}
+
+.sign_in_button {
+    text-align: center;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>CASA</title>
+    <link href="img/CASA_img.jpg" rel="icon" type="image/x-icon" />
+
+    <meta name="CASA App Template Page" content="empty skeleton">
+    <meta charset="utf-8">
+
+    <!-- Bootstrap Library CSS CDN go here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+    <!-- Boostrap Library JS CDN  go here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Our own CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+    <!-- Our own JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script src="js/skeleton.js"></script>
+    <script src="js/client.js"></script>
+      
+</head>
+<body>
+    <!-- nav bar code, importing from separate html file with JS -->
+    <nav id="topNavPlaceholder"></nav>
+
+    
+
+    <!-- footer code, importing from separate html file with JS  -->
+    <footer id="footerPlaceholder"></footer>
+
+    <!-- PAGE MAIN CONTENTS HERE-->
+    <div class="mainContent">
+        <!--Grid container to enable the hidden function-->
+        <div class="container">
+            <div class="row">
+                <div class="d-flex flex-column align-items-center">
+                    <!--Will need some js which allows "select all" to select all filters-->
+                    <!--Select all-->
+                    <div>
+                        <input type="checkbox" class="btn-check" id="btn-check-outlined" checked autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btn-check-outlined">Select all</label><br>
+                    </div>
+                    <!--More filters-->
+                    <div>
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#moreFilters" role="button" aria-expanded="false" aria-controls="moreFilters">
+                            More Filters
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--Hidden until more options/filters are taps-->
+            <div class="row container collapse" id="moreFilters">
+                <div class="d-flex flex-column align-items-center">
+                    <!--filter-->
+                    <div>
+                        <input type="checkbox" class="btn-check" id="btn-check-1-outlined" checked autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btn-check-1-outlined">Plumber</label><br>
+                    </div>
+                    <!--filter-->
+                    <div>
+                        <input type="checkbox" class="btn-check" id="btn-check-2-outlined" checked autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btn-check-2-outlined">Electrician</label><br>
+                    </div>
+                    <!--filter-->
+                    <div>
+                        <input type="checkbox" class="btn-check" id="btn-check-3-outlined" checked autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btn-check-3-outlined">General Work</label><br>
+                    </div>
+                    <!--filter-->
+                    <div>
+                        <input type="checkbox" class="btn-check" id="btn-check-4-outlined" checked autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btn-check-4-outlined">Lawncare</label><br>
+                    </div>
+                </div>                            
+            </div>
+        </div>
+        
+
+    </div>
+
+</body>
+</html>

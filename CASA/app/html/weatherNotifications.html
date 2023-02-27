@@ -16,13 +16,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- Our own CSS -->
-    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/weatherNotifications.css"/>
 
     <!-- Our own JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <script src="../js/skeleton2.js"></script>
-    <script src="../js/client.js"></script>
+    <script src="js/client.js"></script>
       
 </head>
 <body>
@@ -33,39 +33,27 @@
     <footer id="footerPlaceholder"></footer>
 
     <!-- PAGE MAIN CONTENTS HERE-->
-    <div class="mainContent">
-        
-        <div id="container">
-            
-            <div id="notification1"> 
-                <!-- future replace each with dynamic text and images from database -->
-                <img href="/img/CASA_img.jpg" alt="notification image">
-                <p>Freezing Temperatures forecasted this weekend!</p>
-                <a href="userProfile.html"><img src="/img/Icon_UserProfile.png" alt="Icon_UserProfile" width="50px" height="50px"></a> 
-            </div>
+    <div id="contentContainer">
 
-            <!-- later need CSS to change size of notification displayed either based on click or hover-->
-            
-            <div id="notification2"> 
-                <!-- future replace each with dynamic text and images from database -->
-                <img href="/img/CASA_img.jpg" alt="notification image">
-                <p>Freezing Temperatures forecasted this weekend!</p>
-                <a href="userProfile.html"><img src="/img/Icon_UserProfile.png" alt="Icon_UserProfile" width="50px" height="50px"></a> 
-            </div>
-            <div id="notification3"> 
-                <!-- future replace each with dynamic text and images from database -->
-                <img href="/img/CASA_img.jpg" alt="notification image">
-                <p>Freezing Temperatures forecasted this weekend!</p>
-                <a href="userProfile.html"><img src="/img/Icon_UserProfile.png" alt="Icon_UserProfile" width="50px" height="50px"></a> 
-            </div>
-            <div id="notification4"> 
-                <!-- future replace each with dynamic text and images from database -->
-                <img href="/img/CASA_img.jpg" alt="notification image">
-                <p>Freezing Temperatures forecasted this weekend!</p>
-                <a href="userProfile.html"><img src="/img/Icon_UserProfile.png" alt="Icon_UserProfile" width="50px" height="50px"></a> 
-            </div>
-
+        <div id="forecast">
+            <!-- add API later that display 7 day weather forecast -->
+            7 day forecast
         </div>
+
+        <div id="notification1"> 
+            <!-- future replace each with dynamic text and images from database -->
+            <img src="/img/Weather/Snowfall1.jpg" alt="weatherBanngerImg" width="100%" height="200px">
+            <h3>Freezing Temperatures forecasted this weekend!</h3>
+            <p>more text here</p>
+            <a href=""><img src="/img/Icon_Tools.png" alt="Icon_Tools" width="50px" height="50px"></a> 
+        </div>
+
+        <div id="previousNotifications">
+            <!-- add a link to a page showing previous notifications -->
+            <a href="" >See Previous Notifications</a>
+        </div>
+
+
     </div>
     
 </body>
