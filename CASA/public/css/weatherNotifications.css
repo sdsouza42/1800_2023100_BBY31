@@ -1,0 +1,65 @@
+.topnavbar {
+    position: fixed;
+    top: 0;
+    background-color: #D9D9D9;
+    height: 53px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.topnavbar p {
+    margin-top: 15px;
+}
+
+.bottomnavbar {
+    position: fixed;
+    bottom: 0;
+    background-color: #D9D9D9;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#contentContainer {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    height: calc(100vh - 120px);
+    display:grid;
+}
+
+
+#forecast{
+    grid-row:1;
+    grid-column:1;
+    width: 100%;
+    min-height: 20%;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#notification1 {
+    grid-row:2;
+    grid-column:1;
+    width: 100%;
+    min-height: 40vh;
+    background-color: green;
+    display: block;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+}
+
+#previousNotifications {
+    grid-row:3;
+    grid-column:1;
+    width: 100%;
+    min-height: 20%;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
