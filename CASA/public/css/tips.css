@@ -37,3 +37,9 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+#ratings {
+    position: absolute;
+    top: 70px;
+    left: 440px;
+}
