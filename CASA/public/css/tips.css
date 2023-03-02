@@ -10,34 +10,34 @@ body {
     display:grid;
 }
 
-#forecast {
-    grid-row:1;
-    grid-column:1;
+#tip {
+    grid-row: 1 ;
+    grid-column: 1 / span 2;
     width: 100%;
-    min-height: 20%;
-    background-color: lightblue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#notification1 {
-    grid-row:2;
-    grid-column:1;
-    width: 100%;
-    min-height: 40vh;
+    /* height: 40vh; */
     background-color: lightskyblue;
-    display: block;
+    display: flex;
     text-align:center;
     justify-content: center;
     align-items: center;
 }
 
-#previousNotifications {
-    grid-row:3;
-    grid-column:1;
-    width: 100%;
-    min-height: 20%;
+#save {
+    grid-row: 2;
+    grid-column: 1;
+    width: 30%;
+    /* min-height: 20%; */
+    background-color: lightcyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#help {
+    grid-row: 2;
+    grid-column: 2;
+    width: 30%;
+    /* min-height: 20%; */
     background-color: lightcyan;
     display: flex;
     justify-content: center;

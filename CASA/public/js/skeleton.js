@@ -1,14 +1,14 @@
 $(document).ready(function() {
     $.ajax({
-      url: 'html/topNavBar.html',
+      url: 'html/navTop.html',
       success: function(data) {
-        $('#topNavPlaceholder').html(data);
+        $('#navTopPlaceholder').html(data);
       }
     });
     $.ajax({
-        url: 'html/bottomNavBar.html',
+        url: 'html/navBottom.html',
         success: function(data) {
-          $('#footerPlaceholder').html(data);
+          $('#navBottomPlaceholder').html(data);
         }
       });
   });
