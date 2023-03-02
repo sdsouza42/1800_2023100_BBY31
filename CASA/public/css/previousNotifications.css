@@ -1,0 +1,30 @@
+body {
+    max-width: 500px;
+    background-color: lightblue;
+}
+
+#contentContainer {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    height: calc(100vh - 120px);
+    display:grid;
+}
+
+#contentContainer > * {
+    width: 100%;
+    min-height: 40vh;
+    display: block;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+}
+
+#notification1 {
+    background-color: lightskyblue;
+}
+#notification2 {
+    background-color: lightseagreen;
+}
+#notification3 {
+    background-color: lightskyblue;
+}

@@ -1,25 +1,6 @@
-.topnavbar {
-    position: fixed;
-    top: 0;
-    background-color: #D9D9D9;
-    height: 53px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.topnavbar p {
-    margin-top: 15px;
-}
-
-.bottomnavbar {
-    position: fixed;
-    bottom: 0;
-    background-color: #D9D9D9;
-    height: 50px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+body {
+    max-width: 500px;
+    background-color: lightblue;
 }
 
 #contentContainer {
@@ -29,13 +10,12 @@
     display:grid;
 }
 
-
-#forecast{
+#forecast {
     grid-row:1;
     grid-column:1;
     width: 100%;
     min-height: 20%;
-    background-color: blue;
+    background-color: lightblue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,7 +26,7 @@
     grid-column:1;
     width: 100%;
     min-height: 40vh;
-    background-color: green;
+    background-color: lightskyblue;
     display: block;
     text-align:center;
     justify-content: center;
@@ -58,7 +38,7 @@
     grid-column:1;
     width: 100%;
     min-height: 20%;
-    background-color: blue;
+    background-color: lightcyan;
     display: flex;
     justify-content: center;
     align-items: center;
