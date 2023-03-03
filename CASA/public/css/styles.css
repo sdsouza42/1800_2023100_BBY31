@@ -1,0 +1,160 @@
+/* for all pages */
+body {
+    max-width: 500px;
+    background-color: lightblue;
+}
+
+/* for nav bars across all pages */
+.navTop {
+    position: fixed;
+    top: 0;
+    background-color: #D9D9D9;
+    height: 53px;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navTop p {
+    margin-top: 15px;
+}
+
+.navBottom {
+    position: fixed;
+    bottom: 0;
+    background-color: #D9D9D9;
+    height: 50px;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* for weather notifications pages */
+#weatherNotificationContent {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    height: calc(100vh - 120px);
+    display:grid;
+}
+
+#forecast {
+    grid-row:1;
+    grid-column:1;
+    width: 100%;
+    min-height: 20%;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#currentWeatherNotification {
+    grid-row:2;
+    grid-column:1;
+    width: 100%;
+    min-height: 40vh;
+    background-color: lightskyblue;
+    display: block;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+}
+
+#previousNotificationsContent {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    height: calc(100vh - 120px);
+    display:grid;
+}
+
+#previousNotificationsContent > * {
+    width: 100%;
+    min-height: 40vh;
+    display: block;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+}
+
+#previousNotification1 {
+    background-color: lightskyblue;
+}
+#previousNotification2 {
+    background-color: lightseagreen;
+}
+#previousNotification3 {
+    background-color: lightskyblue;
+}
+
+/* for tips page */
+#tipsContent {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    height: calc(100vh - 120px);
+    display:grid;
+}
+
+#tip {
+    grid-row: 1 / span 5;
+    grid-column: 1 / span 2;
+    width: 100%;
+    background-color: lightskyblue;
+
+}
+
+#tipSaveButton {
+    grid-row: 6;
+    grid-column: 1;
+    /* min-height: 20%; */
+    background-color: lightcyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tipHelpButton {
+    grid-row: 6;
+    grid-column: 2;
+    /* min-height: 20%; */
+    background-color: lightcyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tipRatingButton {
+    position: absolute;
+    top: 70px;
+    left: 440px;
+}
+
+/* for profile page */
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Noto+Sans+Syloti+Nagri&display=swap');
+
+.container_profile {
+    text-align: center;
+    border-radius: 20px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 10px;
+}
+
+.profile_item1 {
+    padding: 3px;
+}
+
+.profile_item2 {
+    padding: 3px;
+    
+}
+
+.profile_item3 {
+    padding: 3px;
+}
+
+
+/* for ratings page */
+
+
+
