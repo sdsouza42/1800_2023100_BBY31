@@ -130,6 +130,72 @@ body {
     left: 440px;
 }
 
+/* for ratings page */
+/* Eddie please add here */
+
+
+/* for savelist page */
+#saveListContainer {
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+#saveListform {
+    position: relative;
+}
+
+#saveListform .fa-search{
+
+    top:20px;
+    left: 20px;
+    color: #9ca3af;
+
+}
+
+#saveListform span{
+
+    position: absolute;
+    right: 17px;
+    top: 13px;
+    padding: 2px;
+    border-left: 1px solid #d1d5db;
+
+}
+
+#saveListform .left-pan{
+    padding-left: 7px;
+}
+
+#saveListform .left-pan i{
+   
+   padding-left: 10px;
+}
+
+#saveListform  .form-input{
+
+    height: 55px;
+    text-indent: 33px;
+    border-radius: 10px;
+}
+
+#saveListform  .form-input:focus{
+
+    box-shadow: none;
+    border:none;
+}
+
+#saveList_list_group {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+
+
 /* for profile page */
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Noto+Sans+Syloti+Nagri&display=swap');
 
@@ -154,7 +220,7 @@ body {
 }
 
 
-/* for ratings page */
+
 
 
 
