@@ -1,0 +1,47 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCQK3647aw-XLuvxojTJFOPFrzpNuZEuX0",
+  authDomain: "comp1800-bby31.firebaseapp.com",
+  projectId: "comp1800-bby31",
+  storageBucket: "comp1800-bby31.appspot.com",
+  messagingSenderId: "657744075183",
+  appId: "1:657744075183:web:6ea5731184f333e509375a"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+
+//Getting All the object of html
+
+var name =document.getElementById("name")
+var email =document.getElementById("email")
+var phone = document.getElementById("phone");
+var passwords =document.getElementById("password")
+
+
+window.signup = function(e){
+  e.preventDefault();
+  var obj = {
+    name: name.value,
+    email: email.value,
+    phone: phone.value,
+    passwords: passwords.value,
+  }
+  createUserWithEmailAndPassword(auth, obj.email, obj.phone, obj.passwords)
+  .then(function(success){
+    alert("Sign up Successfully")
+    window.location.href = "weatherNotifications.html";
+  })
+  .catch(function(err){
+    alert("error" + err)
+  })
+  console.log(obj)
+};

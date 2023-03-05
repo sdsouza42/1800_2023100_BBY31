@@ -88,6 +88,54 @@ body {
     background-color: lightskyblue;
 }
 
+
+
+/* for index page */
+#container_logo_img {
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+#Sign_up {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.facbook{
+
+
+}
+
+#twitter {
+    float: right;
+
+}
+
+/* for register page */
+.member {
+    text-align: center;
+}
+
+.sign_in_button {
+    text-align: center;
+}
+
+.divider d-flex align-items-center my-4 {
+    text-align: center;
+}
+
+/* for terms and services */
+#terms h1{
+    text-align: center;
+    padding-top: 20px;
+}
+
+#terms p{
+    text-align: center;
+    font-family: 'Shantell Sans', cursive;
+}
+
+
 /* for tips page */
 #tipsContent {
     margin-top: 60px;
