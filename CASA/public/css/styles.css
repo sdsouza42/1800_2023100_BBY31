@@ -101,19 +101,19 @@ body {
     padding-bottom: 10px;
 }
 
-.facbook{
-
-
-}
-
 #twitter {
     float: right;
+
 
 }
 
 /* for register page */
+
+
+
 .member {
     text-align: center;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .sign_in_button {
@@ -122,6 +122,26 @@ body {
 
 .divider d-flex align-items-center my-4 {
     text-align: center;
+}
+
+#register_form_check {
+    list-style: none;
+    padding-left: 20px;
+    padding-bottom: 50px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#register_form_check_line {
+    margin-top: -30px;
+}
+
+.agreement_line {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#trader_specialtise {
+    padding-left: 20px;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 /* for terms and services */

@@ -14,7 +14,10 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
   <!-- Other libraries go here -->
-  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+  <title>SIGN UP</title>
 </head>
 
 <body>
@@ -52,7 +55,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="text" id="phone" class="form-control" placeholder="ex. 1(111)-111-1111"/>
+                        <input type="text" id="phone" class="form-control" placeholder="ex. 1(111)-111-1111" />
                         <label class="form-label" for="form3Example1c">Phone Number</label>
                       </div>
                     </div>
@@ -60,15 +63,56 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="password" id="password" class="form-control" placeholder="Enter Your Password" required="required">
+                        <input type="password" id="password" class="form-control" placeholder="Enter Your Password"
+                          required="required">
                         <label class="form-label" for="form3Example4c">Password</label>
                       </div>
                     </div>
 
+                    <hr>
 
+                    <div id="register_form_check">
+                      <ul class="register_type_check"></ul>
+                      <h3>How to describe you?</h3>
+                      <li class="register_type">
+                      <input class="form_check-input" type="radio" name="flexRadioDefault" id="radio1">
+
+                      Regular User
+
+                      </li>
+
+                      <li>
+                        <input class="form_check-input" type="radio" name="flexRadioDefault" id="radio2">
+        
+                        Trader 
+
+                      </li>
+
+                      </ul>
+                    </div>
+
+                    <hr id="register_form_check_line">
+
+
+                    <div id="trader_specialtise">
+                    <h3>For Trader</h3>
+                    <p><em>Choose your Specialtise</em></p>
+                    
+                    
+                    <select id="trader_select">
+                      <option>--Choose Specialtise--</option>
+                      <option>roofting</option>
+                      <option>plumbing</option>
+                      <option>Woodwork</option>
+                     </select>
+                   
+                  </div>
+
+                    <hr>
+                    
 
                     <div class="member">
-                      Already Member?<a href="/1800_2023100_BBY31/CASA/app/html/login.html">Login Here!</a>
+                      Already Member?<a href="/1800_2023100_BBY31/CASA/app/html/login.html"> Login Here!</a>
                     </div>
 
 
@@ -76,7 +120,7 @@
 
                     <div class="form-check d-flex justify-content-center mb-5">
                       <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                      <label class="form-check-label" for="form2Example3">
+                      <label class="agreement_line" for="form2Example3">
                         I agree all statements in <a href="/1800_2023100_BBY31/CASA/app/html/terms.html">Terms of
                           service</a>
                       </label>

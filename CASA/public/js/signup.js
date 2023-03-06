@@ -25,7 +25,9 @@ var name =document.getElementById("name")
 var email =document.getElementById("email")
 var phone = document.getElementById("phone");
 var passwords =document.getElementById("password")
-
+var radio1 = document.getElementById("radio1")
+var radio2 = document.getElementById("radio2")
+var select = document.getElementById("trader_select")
 
 window.signup = function(e){
   e.preventDefault();
@@ -34,8 +36,11 @@ window.signup = function(e){
     email: email.value,
     phone: phone.value,
     passwords: passwords.value,
+    radio1: radio1.value,
+    radio2: radio2.value,
+    select: select.value
   }
-  createUserWithEmailAndPassword(auth, obj.email, obj.phone, obj.passwords)
+  createUserWithEmailAndPassword(auth, obj.email, obj.phone, obj.passwords, obj.radio1, obj.radio2, obj.select)
   .then(function(success){
     alert("Sign up Successfully")
     window.location.href = "weatherNotifications.html";
