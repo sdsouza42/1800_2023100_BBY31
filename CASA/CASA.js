@@ -17,7 +17,7 @@ app.use("/html", express.static("./app/html"));
 app.get("/", function (req, res) {
     //console.log(process.env);
     // retrieve and send an HTML document from the file system
-    let doc = fs.readFileSync("./app/html/indexTemporary.html", "utf8"); // this is the html file CASA.js opens
+    let doc = fs.readFileSync("./app/html/weatherNotifications.html", "utf8"); // this is the html file CASA.js opens
     res.send(doc);
 });
 
