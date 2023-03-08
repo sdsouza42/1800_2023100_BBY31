@@ -23,6 +23,18 @@
     
     <script src="../js/skeleton2.js"></script>
     <script src="js/client.js"></script>
+    <script src="js/trade.js"></script>
+
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <!-- <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" /> -->
       
 </head>
 <body>
@@ -43,9 +55,9 @@
                             Sort by
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Rating</a></li>
-                            <li><a class="dropdown-item" href="#">Distance</a></li>
-                            <li><a class="dropdown-item" href="#">Verfied</a></li>
+                            <li><a id="tradeRating" class="dropdown-item" href="#">Rating</a></li>
+                            <li><a id="distance" class="dropdown-item" href="#">Distance</a></li>
+                            <li><a id="tradeVerfied" class="dropdown-item" href="#">Verfied</a></li>
                             </ul>
                         </div>
                         <div>
@@ -56,16 +68,16 @@
                 <div class="row">
                     <div class="d-flex flex-column justify-content-between">
                         <div class="row mb-4">
-                            <div class="col-md-4">
+                            <div id="tradePicture" class="col-md-4">
                                 <div>
                                     <img src="/img/TradeProfile.svg">
                                 </div>
                             </div>
                             <div class="col-md-8">
-                                <div class="pb-3">
+                                <div id="tradeName" class="pb-3">
                                     John Doe
                                 </div>
-                                <div class="pb-3">
+                                <div id="tradeTags" class="pb-3">
                                     Plumber, General Work
                                 </div>
                                 <div class="row">
