@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // inserts top NavBar  
   $.ajax({
-      url: 'html/navTop.html',
+      url: '/html/navTop.html',
       success: function(data) {
         $('#navTopPlaceholder').html(data);
         // replace page title with meta name value
@@ -11,7 +11,7 @@ $(document).ready(function() {
     });
   // inserts bottom NavBar
   $.ajax({
-      url: 'html/navBottom.html',
+      url: '/html/navBottom.html',
       success: function(data) {
         $('#navBottomPlaceholder').html(data);
       }
