@@ -14,12 +14,19 @@ app.use("/css", express.static("./public/css"));
 app.use("/img", express.static("./public/img"));
 app.use("/html", express.static("./app/html"));
 
+// opens up landing page
 app.get("/", function (req, res) {
-    //console.log(process.env);
-    // retrieve and send an HTML document from the file system
-    let doc = fs.readFileSync("./app/html/indexTemporary.html", "utf8"); // this is the html file CASA.js opens
+    let doc = fs.readFileSync("./app/html/weatherNotifications.html", "utf8"); 
     res.send(doc);
 });
+
+// opens up weatherNotifications page
+app.get("weatherNotifications", function (req, res) {
+    let doc = fs.readFileSync("./app/html/weatherNotifications.html", "utf8"); 
+    res.send(doc);
+});
+
+
 
 // for resource not found (i.e., 404)
 app.use(function (req, res, next) {
