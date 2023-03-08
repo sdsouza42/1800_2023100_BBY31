@@ -29,16 +29,12 @@
     <!-- nav bar code, importing from separate html file with JS -->
     <nav id="navTopPlaceholder"></nav>
 
-    <!-- footer code, importing from separate html file with JS  -->
-    <footer id="navBottomPlaceholder"></footer>
-
     <!-- PAGE MAIN CONTENTS HERE-->
     <div id="weatherNotificationContent">
 
         <div id="forecast">
-            <!-- add API later that display 7 day weather forecast -->
+            <!-- 7 day weather forecast via API -->
             <div id="weather-info"></div>
-            <script src="script.js"></script>
 
             <table id="forecast_table">
                 <tr>
@@ -76,8 +72,12 @@
             <a href="/html/previousNotifications.html" >Read Previous Notifications</a>
         </div>
 
-
     </div>
+
+    <!-- footer code, importing from separate html file with JS  -->
+    <footer id="navBottomPlaceholder"></footer>
     
+    <script src="/js/weatherForecast.js"></script>
+
 </body>
 </html>
