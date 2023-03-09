@@ -7,12 +7,12 @@ import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCQK3647aw-XLuvxojTJFOPFrzpNuZEuX0",
+  authDomain: "comp1800-bby31.firebaseapp.com",
+  projectId: "comp1800-bby31",
+  storageBucket: "comp1800-bby31.appspot.com",
+  messagingSenderId: "657744075183",
+  appId: "1:657744075183:web:6ea5731184f333e509375a"
 };
 
 // Initialize Firebase
@@ -31,12 +31,22 @@ var select = document.getElementById("trader_select")
 
 window.signup = function(e){
   e.preventDefault();
-  createUserWithEmailAndPassword(auth, obj.email, obj.passwords)
+  var obj = {
+    name: name.value,
+    email: email.value,
+    phone: phone.value,
+    passwords: passwords.value,
+    radio1: radio1.value,
+    radio2: radio2.value,
+    select: select.value
+  }
+  createUserWithEmailAndPassword(auth, obj.email, obj.phone, obj.passwords, obj.radio1, obj.radio2, obj.select)
   .then(function(success){
     alert("Sign up Successfully")
     window.location.href = "weatherNotifications.html";
   })
   .catch(function(err){
-    alert("error" + err.message)
+    alert("error" + err)
   })
+  console.log(obj)
 };
