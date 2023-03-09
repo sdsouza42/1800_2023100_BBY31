@@ -14,7 +14,7 @@ function displayProfileDynamically(collection) {
                 var ratings = doc.data().tradeRatings;
                 var distance = doc.data().distance;
                 let newprofile = profileTemplate.content.cloneNode(true);
-                var selectVerified = newprofile.querySelector('.select-verified');
+                //var selectVerified = newprofile.querySelector('.select-verified');
                 //var docID = doc.id; // read the document id
 
                 //update title and text and image
@@ -26,13 +26,19 @@ function displayProfileDynamically(collection) {
                 newprofile.querySelector('.tradeRating').innerHTML = ratings;
                 newprofile.querySelector('.tradeDistance').innerHTML = distance;
                 
-                if (verified) {
-                    // If true, show the HTML element
-                    selectVerified.src = `/img/Verfied.svg`;
+                const selectVerified = newprofile.querySelector('.select-verfied');
+                if (selectVerified) {
+                  // If the element exists, set its source or hide it based on the 'verified' value
+                  if (verified) {
+                    selectVerified.src = '/img/Verfied.svg';
                   } else {
-                    // If false, hide the HTML element
-                    selectVerified.style.display = "none";
+                    selectVerified.style.display = 'none';
                   }
+                } else {
+                  // If the element doesn't exist, log an error message
+                  console.error("Can't find .select-verified element in newprofile");
+                }
+                
 
                 // newcard.querySelector('.card-length').innerHTML = hikeLength +"km";
                 // newcard.querySelector('.card-text').innerHTML = details;
