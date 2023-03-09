@@ -40,7 +40,7 @@ fetch('https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
 //             <p>Temperature: ${temp} &#8451;</p>
 //             <p>Humidity: ${humidity}%</p>
 //             <p>Wind Speed: ${windSpeed} m/s</p>
-//         `;
+//         `; 
 //     })
 //     .catch(error => console.error(error));
 
