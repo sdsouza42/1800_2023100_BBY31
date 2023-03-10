@@ -13,23 +13,25 @@ fetch(url)
         const entryDate = new Date(entry.dt_txt);
         return entryDate.getDate() === now.getDate() + i && entryDate.getHours() === 12;
       });
-      // If we found a forecast entry for the day, update the corresponding table cells with the day and date
+      // If we found a forecast entry for the day, update the corresponding table cells with the day, date, and temperature
       if (nextDayForecast) {
         const date = new Date(nextDayForecast.dt_txt);
         const day = date.toLocaleDateString('en-US', {weekday: 'short'});
         const month = date.toLocaleDateString('en-US', {month: 'short'});
         const dayOfMonth = date.toLocaleDateString('en-US', {day: 'numeric'});
+        const temperature = Math.round(nextDayForecast.main.temp);
         const forecast = nextDayForecast.weather[0].description;
         const icon = `https://openweathermap.org/img/wn/${nextDayForecast.weather[0].icon}.png`;
         document.getElementById(`day${dayCounter + 1}-date`).textContent = `${day}, ${month} ${dayOfMonth}`;
-        document.getElementById(`day${dayCounter + 1}`).innerHTML = `<img src="${icon}" alt="${forecast}"><br>${forecast}`;
+        document.getElementById(`day${dayCounter + 1}`).innerHTML = `<img src="${icon}" alt="${forecast}"><br>${forecast}<br>${temperature} °C`;
         document.getElementById(`day${dayCounter + 1}`).setAttribute('title', forecast);
-        document.getElementById(`day${dayCounter + 1}`).setAttribute('aria-label', `${day}'s weather forecast is ${forecast}`);
+        document.getElementById(`day${dayCounter + 1}`).setAttribute('aria-label', `${day}'s weather forecast is ${forecast}, with a temperature of ${temperature} degrees Celsius`);
         dayCounter++;
       }
     }
   })
   .catch(error => console.error(error));
+
 
 console.log("Weather forecast API loaded successfully.");
 
