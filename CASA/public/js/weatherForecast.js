@@ -20,6 +20,7 @@ fetch('https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
     });
     table.appendChild(tbody);
     document.getElementById('forecast-container').appendChild(table);
+    console.log("Weather API ran successfully.")
   });
 
 
