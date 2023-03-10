@@ -39,14 +39,14 @@ body {
     display:grid;
 }
 
-#forecast {
+#forecast-container {
     grid-row:1;
     grid-column:1;
     width: 100%;
     min-height: 20%;
     background-color: lightblue;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
