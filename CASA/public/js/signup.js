@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
-
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -18,6 +18,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
+const db = getFirestore();
 
 //Getting All the object of html
 
@@ -41,12 +42,18 @@ window.signup = function(e){
     select: select.value
   }
   createUserWithEmailAndPassword(auth, obj.email, obj.phone, obj.passwords, obj.radio1, obj.radio2, obj.select)
-  .then(function(success){
-    alert("Sign up Successfully")
-    window.location.href = "weatherNotifications.html";
+   .then(function(success){
+    // Save user data to Firestore
+    addDoc(collection(db, "user"), obj)
+    .then(function(success) {
+      alert("Sign up successfully!");
+      window.location.href = "weatherNotifications.html";
+    })
+    .catch(function(err) {
+      alert("Error saving user data: " + err);
+    });
   })
   .catch(function(err){
-    alert("error" + err)
+    alert("Error creating user: " + err);
   })
-  console.log(obj)
 };
