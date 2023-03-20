@@ -47,7 +47,7 @@ window.signup = function(e){
     addDoc(collection(db, "user"), obj)
     .then(function(success) {
       alert("Sign up successfully!");
-      window.location.href = "weatherNotifications.html";
+      window.location.href = "alerts.html";
     })
     .catch(function(err) {
       alert("Error saving user data: " + err);

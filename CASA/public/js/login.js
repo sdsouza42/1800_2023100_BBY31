@@ -37,7 +37,7 @@ window.login = function(e){
         // Access user info using userCredential
         console.log(userCredential.user.uid);
         alert("Logged in successfully");
-        window.location.href = "weatherNotifications.html";
+        window.location.href = "alerts.html";
     
     })
     .catch(function(err){

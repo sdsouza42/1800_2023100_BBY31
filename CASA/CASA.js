@@ -16,13 +16,13 @@ app.use("/html", express.static("./app/html"));
 
 // opens up landing page
 app.get("/", function (req, res) {
-    let doc = fs.readFileSync("./app/html/weatherNotifications.html", "utf8"); 
+    let doc = fs.readFileSync("./app/html/alerts.html", "utf8"); 
     res.send(doc);
 });
 
-// opens up weatherNotifications page
-app.get("weatherNotifications", function (req, res) {
-    let doc = fs.readFileSync("./app/html/weatherNotifications.html", "utf8"); 
+// opens up alerts page
+app.get("alerts", function (req, res) {
+    let doc = fs.readFileSync("./app/html/alerts.html", "utf8"); 
     res.send(doc);
 });
 
