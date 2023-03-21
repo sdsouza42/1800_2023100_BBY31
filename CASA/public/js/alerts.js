@@ -25,15 +25,21 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
       });
       // If we found a forecast entry for the day
       if (nextDayForecast) {
+        
         // creates a new Date object for the forecast entry's date and time
         const date = new Date(nextDayForecast.dt_txt);
         const temperature = Math.round(nextDayForecast.main.temp);
+        
         
         // Check if the temperature is below 0 degrees celsius, if so, add the string "alertFreeze" to the list alertTriggers
         if (temperature < 1) {
           alertTriggers.push("alertFreeze");
         }
 
+        // Check if the temperature is below 0 degrees celsius, if so, add the string "alertFreeze" to the list alertTriggers
+        if (temperature > 30) {
+          alertTriggers.push("alertHeat");
+        }
         
 
       }
