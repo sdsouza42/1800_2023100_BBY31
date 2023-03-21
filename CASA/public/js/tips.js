@@ -30,13 +30,11 @@ function saveBookmark(firebaseTipID) {
         })
         .then(function () {
             console.log("tip has been saved for: " + currentUser);
-            var iconID = 'save-' + hikeDocID;
-			
+            // var iconID = 'save-' + hikeDocID;
             //this is to change the icon of the hike that was saved to "filled"
-            document.getElementById(iconID).innerText = 'bookmark';
+            // document.getElementById(tipSaveInput).innerText = 'bookmark';
         });
 }
-
 
 
 // function to remove this tip if the savelist if already there
