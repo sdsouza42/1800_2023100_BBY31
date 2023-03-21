@@ -30,7 +30,7 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
         const temperature = Math.round(nextDayForecast.main.temp);
         
         // Check if the temperature is below 0 degrees celsius, if so, add the string "alertFreeze" to the list alertTriggers
-        if (temperature < 20) {
+        if (temperature < 1) {
           alertTriggers.push("alertFreeze");
         }
 
@@ -74,11 +74,11 @@ setTimeout(function() {  // delay function to give time for placeholders to load
 setTimeout(function() {  // delay function to give time for placeholders to load in
     if (alertTriggers.length == 0) {
         $.ajax({
-            url: '/html/alerts/' + alert + '.html',
+            url: '/html/alerts/alertNone.html',
             success: function(data) {
-                $('#'+alert+'Placeholder').html(data);
+                document.getElementById("weatherAlertPlaceholder").innerHTML = data;
             }
-            });
+        });
     }
 }, 800)
 
