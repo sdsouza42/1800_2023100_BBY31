@@ -37,30 +37,16 @@ document.getElementById("weatherAlertPlaceholder").innerHTML = alertsPlaceholder
 
 // replace each placeholder with the actual alert
 setTimeout(function() {  // delay function to give time for placeholders to load in
-    
-    // Get all elements with class="alertPlaceholder"
-    const placeholders = document.querySelectorAll('.alertPlaceholder');
 
     // Loop through each placeholder element
-    placeholders.forEach((placeholder) => {
-        // Get the id of the placeholder element
-        const id = placeholder.getAttribute('id');
-    
-        // Create a new XMLHttpRequest object
-        const xhr = new XMLHttpRequest();
-    
-        // Set up the callback function to run when the request is complete
-        xhr.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            // Replace the contents of the placeholder element with the fetched HTML content
-            placeholder.innerHTML = this.responseText;
-        }
-        };
-    
-        // Send the AJAX request to fetch the HTML content from the file in the alerts subfolder with the same name as the id
-        xhr.open('GET', `/html/alerts/${id}.html`, true);
-        xhr.send();
-    });
+    for (let alert of alertTriggers) {
+        $.ajax({
+            url: '/html/alerts/' + alert + '.html',
+            success: function(data) {
+              $('#'+alert+'Placeholder').html(data);
+            }
+          });   
+    }
 }, 500)
 
 
