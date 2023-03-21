@@ -40,7 +40,7 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
     }
   })
   .catch(error => console.error(error));
-console.log("Weather forecast API loaded successfully.");
+// console.log("Weather forecast API loaded successfully.");
 
 
 // fetch('https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric&appid=81572cf71c6ecc82b6b56e2063b640fe')
