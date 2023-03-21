@@ -1,9 +1,15 @@
 <div id="alertFreeze"> 
     <img src="/img/Weather/Snowfall1.jpg" alt="weatherBanngerImg" width="100%" height="200px">
     <h3 class="alertTitle">Freezing Temperatures Soon!</h3>
-    <!-- <p class="dateToday">placeholder for date of alert</p> -->
-    <a href="/html/tips.html">Click here button get the steps you need to take!</a> 
 
-    <!-- read this element with js to link it to the firebase loading next page -->
-    <a id="QZft0ZW41tZLyWdp6Zr0" class="firebaseLink" style="display:none"></a>
+    <button onclick="redirectToNextPage()">Click for tips!</button>
+    <script>
+        function redirectToNextPage() {
+          const firebaseTipID = "QZft0ZW41tZLyWdp6Zr0"; 
+          localStorage.setItem('firebaseTipID', firebaseTipID); // stores ID for the tip linked to this alert in localStorage
+          window.location.href = "/html/tips.html"; // redirect to the tips page
+        }
+    </script>
+
+
 </div>

@@ -1,3 +1,10 @@
+// get the tip ID previously stored from the corresponding alert
+const firebaseTipID = localStorage.getItem('firebaseTipID');
+console.log(firebaseTipID); 
+
+
+
+
 // populate page with the relevant tip from tips collections
 function displayTip() {
   // let params = new URL( window.location.href ); //get URL of search bar
@@ -5,7 +12,7 @@ function displayTip() {
   // console.log( ID );
 
   db.collection( "Tips" )
-      .doc( "QZft0ZW41tZLyWdp6Zr0" )
+      .doc( firebaseTipID )
       .get()
       .then( doc => {
           weatherForThisTip = doc.data().weather;

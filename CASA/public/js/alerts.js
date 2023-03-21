@@ -32,7 +32,7 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
         
         
         // Check if the temperature is below 0 degrees celsius, if so, add the string "alertFreeze" to the list alertTriggers
-        if (temperature < 1) {
+        if (temperature < 20) {  // set to 20 for now while testing, change back to 1 later
           alertTriggers.push("alertFreeze");
         }
 
@@ -59,6 +59,7 @@ setTimeout(function() {  // delay function to give time for API to populate trig
 
     // load individual placeholders inside main weatherAlertPlaceholder
     document.getElementById("weatherAlertPlaceholder").innerHTML = alertsPlaceholder;
+    // $("#weatherAlertPlaceholder").html(alertsPlaceholder);
 }, 400)
 
 
