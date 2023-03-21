@@ -1,15 +1,8 @@
 // get the tip ID previously stored from the corresponding alert
 const firebaseTipID = localStorage.getItem('firebaseTipID');
-console.log(firebaseTipID); 
-
-
-
 
 // populate page with the relevant tip from tips collections
 function displayTip() {
-  // let params = new URL( window.location.href ); //get URL of search bar
-  // let ID = params.searchParams.get( "docID" ); //get value for key "id"
-  // console.log( ID );
 
   db.collection( "Tips" )
       .doc( firebaseTipID )
@@ -18,54 +11,35 @@ function displayTip() {
           weatherForThisTip = doc.data().weather;
           tipForThisWeather = doc.data().info;
           
-          // only populate title, and image
-          document.getElementById( "weatherForThisTip" ).innerHTML = weatherForThisTip;
-          document.getElementById( "tipForThisWeather" ).innerHTML = tipForThisWeather;
+          $("#weatherForThisTip").html(weatherForThisTip);
+          $("#tipForThisWeather").html(tipForThisWeather);
       } );
-      console.log("displayTip ran successfully.");
 }
 displayTip();
 
 
+// function to save a tip to the user's personal savelist
+$("#tipSaveButton").onclick = () => saveBookmark(firebaseTipID);
+// newcard.querySelector('i').id = 'save-' + docID; 
 
-
-// save button adds this tip to the user-specific save list
-function saveTip(){
-  
-  let Title = document.getElementById("title").value;
-  let Level = document.getElementById("level").value;
-  let Season = document.getElementById("season").value;
-  let Description = document.getElementById("description").value;
-  let Flooded = document.querySelector('input[name="flooded"]:checked').value;
-  let Scrambled = document.querySelector('input[name="scrambled"]:checked').value;
-
-  firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-          var currentUser = db.collection("users").doc(user.uid)
-          var userID = user.uid;
-          //get the document for current user.
-          currentUser.get()
-              .then(userDoc => {
-                  var userEmail = userDoc.data().email;
-                  db.collection("reviews").add({
-                      hikeDocID: hikeDocID,
-                      userID: userID,
-                      title: Title,
-                      level: Level,
-                      season: Season,
-                      description: Description,
-                      flooded: Flooded,
-                      scrambled: Scrambled,
-                      timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                  }).then(()=>{
-                      window.location.href = "thanks.html"; //new line added
-                  })
-              })
-     } else {
-      }
-  });
-  console.log("Tip saved successfully.")
+function saveBookmark(firebaseTipID) {
+    currentUser.set({
+            bookmarks: firebase.firestore.FieldValue.arrayUnion(firebaseTipID)
+        }, {
+            merge: true
+        })
+        .then(function () {
+            console.log("tip has been saved for: " + currentUser);
+            var iconID = 'save-' + hikeDocID;
+			
+            //this is to change the icon of the hike that was saved to "filled"
+            document.getElementById(iconID).innerText = 'bookmark';
+        });
 }
 
-// unsave tip removing it from savelist
 
+
+// function to remove this tip if the savelist if already there
+
+
+// change button displayer depending on whether the tip is already saved or not
