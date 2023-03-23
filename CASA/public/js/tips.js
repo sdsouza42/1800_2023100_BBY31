@@ -1,6 +1,6 @@
 // get the tip ID previously stored from the corresponding alert
 const firebaseTipID = localStorage.getItem('firebaseTipID');
-// console.log(firebaseTipID);
+console.log("Tip has loaded from: " + firebaseTipID);
 
 // populate page with the relevant tip from tips collections
 function displayTip() {
