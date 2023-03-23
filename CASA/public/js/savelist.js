@@ -1,5 +1,9 @@
 // populate page with multiple tips from the user-specific savelist 
-function populateReviews() {
+function populateTips() {
+    db.collection("user").where("savedTips").get()
+
+    console.log(db.collection("user").where("savedTips").get());
+    
     let hikeCardTemplate = document.getElementById("reviewCardTemplate");
     let hikeCardGroup = document.getElementById("reviewCardGroup");
 
@@ -34,4 +38,4 @@ function populateReviews() {
             })
         })
 }
-populateReviews();
+populateTips();

@@ -5,7 +5,7 @@
     <button onclick="redirectToNextPage()">Click for tips!</button>
     <script>
         function redirectToNextPage() {
-          const firebaseTipID = "tipFreeze"; 
+          const firebaseTipID = "tipFreeze";
           localStorage.setItem('firebaseTipID', firebaseTipID); // stores ID for the tip linked to this alert in localStorage
           window.location.href = "/html/tips.html"; // redirect to the tips page
         }

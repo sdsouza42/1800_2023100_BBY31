@@ -16,7 +16,7 @@ app.use("/html", express.static("./app/html"));
 
 // opens up landing page
 app.get("/", function (req, res) {
-    let doc = fs.readFileSync("./app/html/alerts.html", "utf8"); 
+    let doc = fs.readFileSync("./app/html/login.html", "utf8"); 
     res.send(doc);
 });
 
