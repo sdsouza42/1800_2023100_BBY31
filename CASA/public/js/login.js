@@ -37,10 +37,15 @@ window.login = function(e){
         // Access user info using userCredential
         console.log(userCredential.user.uid);
         alert("Logged in successfully");
-        window.location.href = "alerts.html";
-    
+        window.location.href = "profile.html";
     })
     .catch(function(err){
-        alert("Login error: " + err.message);
+        if (err.code === "auth/wrong-password") {
+            alert("Login error: The password you entered is incorrect.");
+        } else if (err.code === "auth/user-not-found") {
+            alert("Login error: The email you entered does not exist in our system.");
+        } else {
+            alert("Login error: " + err.message);
+        }
     });
 };

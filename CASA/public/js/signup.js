@@ -2,6 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+import { setDoc, doc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,38 +23,47 @@ const db = getFirestore();
 
 //Getting All the object of html
 
-var name =document.getElementById("name")
-var email =document.getElementById("email")
+var name = document.getElementById("name")
+var email = document.getElementById("email")
 var phone = document.getElementById("phone");
-var passwords =document.getElementById("password")
-var radio1 = document.getElementById("radio1")
-var radio2 = document.getElementById("radio2")
+var passwords = document.getElementById("password")
+var userTypeRegular = document.getElementById("regularUser")
+var userTypeTrader = document.getElementById("trader")
 var select = document.getElementById("trader_select")
 
-window.signup = function(e){
+window.signup = function (e) {
   e.preventDefault();
+  var userType = "";
+  if (userTypeRegular.checked) {
+    userType = "regular";
+  } else if (userTypeTrader.checked) {
+    userType = "trader";
+  } else {
+    alert("Please select a user type");
+    return;
+  }
   var obj = {
     name: name.value,
     email: email.value,
     phone: phone.value,
     passwords: passwords.value,
-    radio1: radio1.value,
-    radio2: radio2.value,
+    userType: userType,
     select: select.value
   }
-  createUserWithEmailAndPassword(auth, obj.email, obj.phone, obj.passwords, obj.radio1, obj.radio2, obj.select)
-   .then(function(success){
+  createUserWithEmailAndPassword(auth, obj.email, obj.passwords)
+  .then(function (success) {
     // Save user data to Firestore
-    addDoc(collection(db, "user"), obj)
-    .then(function(success) {
-      alert("Sign up successfully!");
-      window.location.href = "alerts.html";
-    })
-    .catch(function(err) {
-      alert("Error saving user data: " + err);
-    });
+    const userRef = doc(db, "user", success.user.uid);
+    setDoc(userRef, obj)
+      .then(function (success) {
+        alert("Sign up successfully!");
+        window.location.href = "profile.html";
+      })
+      .catch(function (err) {
+        alert("Error saving user data: " + err);
+      });
   })
-  .catch(function(err){
+  .catch(function (err) {
     alert("Error creating user: " + err);
-  })
+  });
 };

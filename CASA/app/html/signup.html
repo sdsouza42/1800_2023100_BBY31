@@ -19,16 +19,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
   <title>SIGN UP</title>
 
-    <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+<!-- Firebase 9 Library related CSS, JS, JQuery go here -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
 </head>
 
 <body>
@@ -66,7 +66,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="text" id="phone" class="form-control" placeholder="ex. 1(111)-111-1111" required="required"/>
+                        <input type="text" id="phone" class="form-control" placeholder="ex. (111)-111-1111" required="required"/>
                         <label class="form-label" for="form3Example1c">Phone Number</label>
                       </div>
                     </div>
@@ -86,14 +86,14 @@
                       <ul class="register_type_check"></ul>
                       <h3>How to describe you?</h3>
                       <li class="register_type">
-                      <input class="form_check-input" type="radio" name="flexRadioDefault" id="radio1" required="required">
+                      <input class="form_check-input" type="radio" name="userType" id="regularUser" required="required">
 
                       Regular User
 
                       </li>
 
                       <li>
-                        <input class="form_check-input" type="radio" name="flexRadioDefault" id="radio2" required="required">
+                        <input class="form_check-input" type="radio" name="userType" id="trader" required="required">
         
                         Trader 
 
