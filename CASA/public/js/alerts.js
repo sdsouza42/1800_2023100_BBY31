@@ -32,12 +32,12 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
         
         
         // Check if the temperature is below 0 degrees celsius, if so, add the string "alertFreeze" to the list alertTriggers
-        if (temperature < 20) {  // set to 20 for now while testing, change back to 1 later
+        if (temperature < 0 || true) {  // added OR true statement so it populates for demo
           alertTriggers.push("alertFreeze");
         }
 
         // Check if the temperature is below 0 degrees celsius, if so, add the string "alertFreeze" to the list alertTriggers
-        if (temperature > 30) {
+        if (temperature > 30 || true) {
           alertTriggers.push("alertHeat");
         }
         
