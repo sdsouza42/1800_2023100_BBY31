@@ -25,22 +25,28 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
       });
       // If we found a forecast entry for the day
       if (nextDayForecast) {
-        
+
+        // ALL THE CONDITIONS TO CHECK TO TRIGGER ALERTS
+
         // creates a new Date object for the forecast entry's date and time
-        const date = new Date(nextDayForecast.dt_txt);
-        const temperature = Math.round(nextDayForecast.main.temp);
+        const temperature = Math.round(nextDayForecast.main.temp);      
         
-        
-        // Check if the temperature is below 0 degrees celsius, if so, add the string "alertFreeze" to the list alertTriggers
+        // Check if the temperature is below 0 degrees celsius trigger adding "alertFreeze" string to alertTriggers list
         if (temperature < 0 || true) {  // added OR true statement so it populates for demo
           alertTriggers.push("alertFreeze");
         }
 
-        // Check if the temperature is below 0 degrees celsius, if so, add the string "alertFreeze" to the list alertTriggers
-        if (temperature > 30 || true) {
+        // Check if the temperature is above 30 degrees celsius to trigger adding "alertHeat" string to alertTriggers list
+        if (temperature > 30 || true) {  // added OR true statement so it populates for demo
           alertTriggers.push("alertHeat");
         }
+
         
+        // Check if we are close to winter
+        const monthToday = new Date().getMonth();
+        if (monthToday > 8 || true) {  // added OR true statement so it populates for demo
+          alertTriggers.push("alertWinter");
+        }
 
       }
     }

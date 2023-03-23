@@ -56,6 +56,30 @@ body {
     padding: 4px;
 }
 
+#weatherAlertPlaceholder {
+    overflow-y: auto;
+}
+
+/* Show the scrollbar when hovering over the element */
+.weatherAlertPlaceholder:hover::-webkit-scrollbar {
+    display: block;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #a3a3a380;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #eeeeee00;
+}
+
+
 #weatherAlert {
     grid-row:2;
     grid-column:1;
