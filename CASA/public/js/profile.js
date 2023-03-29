@@ -174,11 +174,13 @@ function getProfilePic() {
   var weatherHistoryButton = document.querySelector(".profile_item1 input[type='button']");
   weatherHistoryButton.addEventListener("click", function() {
     // Code to handle the "Weather History" button click event
+    window.location.href = "tradeReg.html";
   });
 
   var setLocationButton = document.querySelector(".profile_item2 input[type='button']");
   setLocationButton.addEventListener("click", function() {
     // Code to handle the "Set Location" button click event
+   
   });
 
   var signOutButton = document.querySelector(".profile_item3 input[type='button']");
