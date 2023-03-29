@@ -40,24 +40,61 @@
     <div class="mainContent">
         <!--Grid container to enable the hidden function-->
         <div class="container py-4">
-            <div class="p-5 mb-4 bg-light rounded-3">
-                <div class="row">
-                    <div class="d-flex flex-row justify-content-between">
-                        <!-- <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            Sort by
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a id="distance" class="dropdown-item" href="#">Distance</a></li>
-                            <li><a id="tradeVerfied" class="dropdown-item" href="#">Verfied</a></li>
-                            </ul>
-                        </div> -->
-                        <div>
-                            <a class="btn btn-info" href="./TradeFilters.html" role="button">Filters</a>
+            <div class="filters-wrapper">
+                <div class="container py-4">
+                    <div class="p-5 mb-4 bg-light rounded-3">
+                        <div class="row">
+                            <div class="d-flex justify-content-center">
+                                <div>
+                                    <a class="btn btn-info" role="button">Filters</a>
+                                </div>
+                            </div>
                         </div>
+        
+                        <form id="filter-form" class="text-center" style="display: none;">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="roofing" value="roofing" checked>
+                                        <label class="form-check-label" for="roofing">Roofing</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="plumbing" value="plumbing" checked>
+                                        <label class="form-check-label" for="plumbing">Plumbing</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="generalWork" value="generalWork" checked>
+                                        <label class="form-check-label" for="generalWork">General Work</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="electrician" value="electrician" checked>
+                                        <label class="form-check-label" for="electrician">Electrician</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="yardWork" value="yardWork" checked>
+                                        <label class="form-check-label" for="yardWork">Yard Work</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <button type="button" id="applyFilters" class="btn btn-primary">Apply</button>
+                                    <button type="button" id="defaultButton" class="btn btn-secondary">Default</button>
+                                </div>
+                            </div>
+                        </form>
+                                
                     </div>
                 </div>
-
+            
 
                 <div class="row">
                     <div id="tradeSelect" class="d-flex flex-column justify-content-between"></div>    
@@ -82,8 +119,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="select-nnum pb-3">
-                                        Phone: <span class="nnum-field">000</span>
+                                    <div class="select-verified pb-3">
+                                        Verified: <img class="verified-field" src="...">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -92,16 +129,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="select-email pb-3">
-                                        Email: <span class="email-field">test@example.com</span>
-                                    </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="select-email pb-3">
+                                    Email: <span class="email-field">test@example.com</span>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="select-verified pb-3">
-                                        Verified: <img class="verified-field" src="...">
-                                    </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="select-nnum pb-3">
+                                    Phone: <span class="nnum-field">000</span>
                                 </div>
                             </div>
                         </div>                        

@@ -45,3 +45,24 @@ function displayProfileDynamically(collection) {
 displayProfileDynamically("tradeUser"); //input param is the name of the collection
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  // Get the filter button and form elements
+  var filterButton = document.querySelector('.btn-info');
+  var form = document.querySelector('#filter-form');
+
+  // Toggle the visibility of the form when the filter button is clicked
+  filterButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      form.style.display = form.style.display === 'none' ? '' : 'none';
+  });
+});
+
+defaultButton.addEventListener('click', function(e) {
+  e.preventDefault();
+  var checkboxes = document.querySelectorAll('.form-check-input');
+  checkboxes.forEach(function(checkbox) {
+      checkbox.checked = true;
+  });
+});
+
+
