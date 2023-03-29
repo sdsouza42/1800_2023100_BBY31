@@ -48,4 +48,31 @@ window.login = function(e){
             alert("Login error: " + err.message);
         }
     });
+
+
+    //Remember me
+    var rememberMe = document.getElementById("form1Example3");
+rememberMe.addEventListener("change", function(){
+    if(this.checked){
+        localStorage.setItem("email", email.value);
+        localStorage.setItem("password", password.value);
+    } else {
+        localStorage.removeItem("email");
+        localStorage.removeItem("password");
+    }
+});
+
+var rememberMe = document.getElementById("form1Example3");
+rememberMe.addEventListener("change", function(){
+    if(this.checked){
+        localStorage.setItem("email", email.value);
+        localStorage.setItem("password", password.value);
+    } else {
+        localStorage.removeItem("email");
+        localStorage.removeItem("password");
+    }
+});
+
+
+    
 };
