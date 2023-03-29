@@ -11,21 +11,27 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
         crossorigin="anonymous">
   <!-- Your custom CSS stylesheets -->
-  <link rel="stylesheet" href="/1800_2023100_BBY31/CASA/public/css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
   <!-- Your Firebase configuration and initialization code -->
 </head>
+
+<style>
+  body {
+  margin-top: 50%;
+}
+</style>
+
 <body>
-  <section class="container_profile" style="background-color: #eee;">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-12 col-xl-4">
+
+  <nav id="navTopPlaceholder"></nav>
+
 
           <!-- photo -->
           <div class="card" style="border-radius: 15px;">
             <div class="card-body text-center">
               <div class="profile_pic" id="profilePic">
                 <input type="file" id="fileInput" style="display: none;">
-                <img src="../../public/img/profile_photo.jpg" class="rounded-circle img-fluid" style="width: 100px;" />
+                <img src="/img/profile_photo.jpg" class="rounded-circle img-fluid" style="width: 100px;" />
               </div>
               <!-- personal details -->
        
@@ -37,30 +43,15 @@
                <span id="email">[User@gmail.com]</a>
               </p>
 
-              
-
-              <div class="mb-4 pb-2">
-                <h6>Link to Your Account</h3>
-                  <!--  facbook -->
-                  <button type="button" class="btn btn-outline-primary btn-floating">
-                    <i class="fab fa-facebook fa-4x"></i>
-                    <img src="../../public/img/facebook.svg">
-                  </button>
-                  <!-- twitter -->
-                  <button type="button" class="btn btn-outline-primary btn-floating">
-                    <i class="fab fa-twitter fa-lg"></i>
-                    <img src="../../public/img/twitter.svg">
-                  </button>
-
-              </div>
+  
 
               <!-- button item here -->
               <div class="profile_item1">
-                <input class="btn btn-primary" type="button" value="Weather History" style="width: 140px;">
+                <input class="btn btn-primary" type="button" value="Add Trader Info" style="width: 140px;">
               </div>
 
               <div class="profile_item2">
-                <input class="btn btn-primary" type="button" value="Set Location" style="width: 140px;">
+                <input class="btn btn-primary" type="button" value="profile" style="width: 140px;">
               </div>
 
               <div class="profile_item3">
@@ -71,9 +62,13 @@
         </div>
       </div>
     </div>
-  </section> 
+  </div> 
+
+  <footer id="navBottomPlaceholder"></footer>
   
-  <script src="/1800_2023100_BBY31/CASA/public/js/profile.js" type="module"></script>
+  <script src="/js/profile.js" type="module"></script>
+  <script src="/js/skeleton.js"></script>
+  <script src="/CASA/CASA.js"></script>
 </body>
 
 </html>

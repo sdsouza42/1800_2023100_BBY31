@@ -2,12 +2,16 @@
 // Input parameter is a string representing the collection we are reading from
 //------------------------------------------------------------------------------
 
-function displayProfileDynamically(collection) {
-    let profileTemplate = document.getElementById("tradeSelectTemplate");
+db.collection(collection, selectedTags).get()
+.then(allTrades => {
+    allTrades.forEach(doc => {
+        var tradeTags = doc.data().tradeTags;
 
-    db.collection(collection).get()
-        .then(allTrades => {
-            allTrades.forEach(doc => {
+        // Check if any of the selectedTags are present in the tradeTags
+        var tagMatch = tradeTags.some(tag => selectedTags.includes(tag));
+
+        // If there's a match or there are no selectedTags, create a new profile and append it
+        if (selectedTags.length === 0 || tagMatch) {
                 var name = doc.data().Name;
                 var tags = doc.data().tradeTags;
                 var bName = doc.data().bName;
@@ -38,10 +42,12 @@ function displayProfileDynamically(collection) {
                 }
 
                 document.getElementById("tradeSelect").appendChild(newprofile);
-            })
-        })
-}
+            }
+        });
+    });
 
-displayProfileDynamically("tradeUser"); //input param is the name of the collection
+    let filtersString = urlParams.get('filters');
+    let selectedFilters = filtersString ? JSON.parse(decodeURIComponent(filtersString)) : [];
+    displayProfileDynamically("tradeUser", selectedFilters);
 
-
+    

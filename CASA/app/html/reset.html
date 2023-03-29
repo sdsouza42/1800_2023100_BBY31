@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>CASA</title>
     <meta name="comp1800 template" content="My 1800 App">
       
-    <link href="img/CASA_img.jpg" rel="icon" type="image/x-icon" />
+    <link href="../../public/img/CASA_img.jpg" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
       
     <!-- Required meta tags -->
@@ -17,9 +17,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- Other libraries go here -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@300&display=swap" rel="stylesheet">
+    <!-- Our own CSS and JS-->
+    <script src="js/client.js"></script>
+    <script src="js/myscripts.js"></script>
 
     <!-------------------------------------------------------->
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
@@ -32,28 +32,45 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-</head>
-<body>
-    
+    <style>
+        #resetcard {
+          margin: auto;
+        }
 
-    <div id="terms">
-    <h1>Terms of Services</h1>
-    <p>GOTCHA, NOTHING HERE!</p>
-    <p>GOTCHA, NOTHING HERE!</p>
-    <p>GOTCHA, NOTHING HERE!</p>
-    <p>GOTCHA, NOTHING HERE!</p>
-    <p>GOTCHA, NOTHING HERE!</p>
-    <p>GOTCHA, NOTHING HERE!</p>
-    <p>GOTCHA, NOTHING HERE!</p>
-    <p>GOTCHA, NOTHING HERE!</p>
-    <p>GOTCHA, NOTHING HERE!</p>
-    <p>GOTCHA, NOTHING HERE!</p>
-    <p>GOTCHA, NOTHING HERE!</p>
-    <p>GOTCHA, NOTHING HERE!</p>
-    <p>GOTCHA, NOTHING HERE!</p>
-    <p>GOTCHA, NOTHING HERE!</p>
-    </div>
-    
-    <script src="/CASA/CASA.js"></script>
+        @media (max-width: 600px) {
+        #resetcard {
+          width: 100%;
+        }
+      }
+
+      </style>
+  
+
+    </head>
+<body>
+
+  <nav id="navTopPlaceholder"></nav>]
+
+    <div class="container-fluid d-flex align-items-center justify-content-center h-100" id="resetcard">
+        <div class="card text-center" style="width: 100%; height: 100%;" >
+          <div class="card-header h5 text-white bg-primary">Password Reset</div>
+          <div class="card-body px-5">
+            <p class="card-text py-2">
+              Enter your email address and we'll send you an email with instructions to reset your password.
+            </p>
+            <div class="form-outline">
+              <input type="email" id="typeEmail" class="form-control my-3" />
+              <label class="form-label" for="typeEmail">Email input</label>
+            </div>
+            <a href="#" class="btn btn-primary w-100" id="reset-button">Reset password</a>
+          </div>
+        </div>
+      </div>
+
+      <footer id="navBottomPlaceholder"></footer>
+
+    <script src="/js/reset.js"></script>
+    <script src="/js/skeleton.js"></script>
+
 </body>
 </html>

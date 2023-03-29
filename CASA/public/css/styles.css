@@ -305,6 +305,7 @@ body {
 /* for terms and services */
 #terms h1{
     text-align: center;
+    align-items: center;
     padding-top: 20px;
 }
 

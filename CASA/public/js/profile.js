@@ -174,18 +174,20 @@ function getProfilePic() {
   var weatherHistoryButton = document.querySelector(".profile_item1 input[type='button']");
   weatherHistoryButton.addEventListener("click", function() {
     // Code to handle the "Weather History" button click event
+    window.location.href = "/tradeReg.html";
   });
 
   var setLocationButton = document.querySelector(".profile_item2 input[type='button']");
   setLocationButton.addEventListener("click", function() {
     // Code to handle the "Set Location" button click event
+   
   });
 
   var signOutButton = document.querySelector(".profile_item3 input[type='button']");
   signOutButton.addEventListener("click", function() {
     // Sign out the user and redirect to the login page
     auth.signOut().then(function() {
-      window.location.replace("login.html");
+      window.location.replace("/login.html");
     }).catch(function(error) {
       console.error("Error signing out:", error);
     });

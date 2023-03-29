@@ -30,23 +30,39 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
 
         // creates a new Date object for the forecast entry's date and time
         const temperature = Math.round(nextDayForecast.main.temp);      
+        console.log(temperature);
         
-        // Check if the temperature is below 0 degrees celsius trigger adding "alertFreeze" string to alertTriggers list
-        if (temperature < 0 || true) {  // added OR true statement so it populates for demo
-          alertTriggers.push("alertFreeze");
-        }
+            // if the temperature forecast is below 0C trigger adding "alertFreeze" string to alertTriggers list
+            if (temperature < 0 || true) {  // added OR true statement so it populates for demo
+            alertTriggers.push("alertFreeze");
+            }
 
-        // Check if the temperature is above 30 degrees celsius to trigger adding "alertHeat" string to alertTriggers list
-        if (temperature > 30 || true) {  // added OR true statement so it populates for demo
-          alertTriggers.push("alertHeat");
-        }
+            // if the temperature forecast is above 30C trigger adding "alertHeat" string to alertTriggers list
+            if (temperature > 30 || true) {  // added OR true statement so it populates for demo
+            alertTriggers.push("alertHeat");
+            }
 
+        const pop = forecast.pop;
+        console.log(pop);
+        const rain = forecast.rain ? forecast.rain["3h"] : 0;    
+        console.log(rain);
+        // if forecast includes heavy rain fall trigger adding "alertRain" string to alertTriggers list 
+        if (pop > 70 || rain > 10 || true) {  // added OR true statement so it populates for demo
+            alertTriggers.push("alertRain");
+            }
+
+        const wind = forecast.wind;
+        console.log(wind);
+        // if forecast includes strong winds fall trigger adding "alertWind" string to alertTriggers list 
+        if (wind && wind.speed > 10 || true) {  // added OR true statement so it populates for demo
+            alertTriggers.push("alertWind");
+            }
         
         // Check if we are close to winter
-        const monthToday = new Date().getMonth();
-        if (monthToday > 8 || true) {  // added OR true statement so it populates for demo
-          alertTriggers.push("alertWinter");
-        }
+        // const monthToday = new Date().getMonth();
+        // if (monthToday > 8 || true) {  // added OR true statement so it populates for demo
+        //   alertTriggers.push("alertWinter");
+        // }
 
       }
     }

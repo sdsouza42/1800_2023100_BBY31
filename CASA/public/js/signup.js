@@ -57,7 +57,7 @@ window.signup = function (e) {
     setDoc(userRef, obj)
       .then(function (success) {
         alert("Sign up successfully!");
-        window.location.href = "profile.html";
+        window.location.href = "/profile.html";
       })
       .catch(function (err) {
         alert("Error saving user data: " + err);
