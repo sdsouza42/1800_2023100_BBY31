@@ -61,3 +61,11 @@ function displayProfileDynamically(collection) {
 }
 
 displayProfileDynamically("tradeUser");  //input param is the name of the collection
+
+
+function selected(docID){
+  db.collection("tradeUser").doc(docID).get().then(doc => {
+    // Navigate to the new page and pass the document name as a query string parameter
+    window.location.href = "TradeProfile.html?docName=" + doc.id;
+});
+}
