@@ -4,7 +4,7 @@
 
 <head>
     <title>CASA</title>
-    <link href="img/CASA_img.jpg" rel="icon" type="image/x-icon" />
+    <link href="../../public/img/CASA_img.jpg" rel="icon" type="image/x-icon" />
 
     <meta name="CASA App Template Page" content="empty skeleton">
     <meta charset="utf-8">
@@ -20,9 +20,6 @@
 
     <!-- Our own JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <script src="../js/skeleton2.js"></script>
-    <script src="js/client.js"></script>
 
     <!-------------------------------------------------------->
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
@@ -39,61 +36,44 @@
     <!-- nav bar code, importing from separate html file with JS -->
     <nav id="navTopPlaceholder"></nav>
 
-
     <!-- PAGE MAIN CONTENTS HERE-->
-    <div class="mainContent">
-        <!--Grid container to enable the hidden function-->
-        <div class="container py-4">
-            <div class="p-5 mb-4 bg-light rounded-3">
-                <div class="row">
-                    <div class="d-flex flex-column align-items-center">
-                        <!--Will need some js which allows "select all" to select all filters-->
-                        <!--Select all-->
-                        <div>
-                            <input type="checkbox" class="btn-check" id="btn-check-outlined" checked autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="btn-check-outlined">Select all</label><br>
-                        </div>
-                        <!--More filters-->
-                        <div>
-                            <a class="btn btn-primary" data-bs-toggle="collapse" href="#moreFilters" role="button" aria-expanded="false" aria-controls="moreFilters">
-                                More Filters
-                            </a>
-                        </div>
-                    </div>
+    <div class="container mt-4">
+        <h2>Filters</h2>
+        <form>
+            <div class="mb-3">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="roofing" value="roofing" checked>
+                    <label class="form-check-label" for="roofing">Roofing</label>
                 </div>
-                <!--Hidden until more options/filters are taps-->
-                <div class="row container collapse" id="moreFilters">
-                    <div class="d-flex flex-column align-items-center">
-                        <!--filter-->
-                        <div>
-                            <input type="checkbox" class="btn-check" id="btn-check-1-outlined" checked autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="btn-check-1-outlined">Plumber</label><br>
-                        </div>
-                        <!--filter-->
-                        <div>
-                            <input type="checkbox" class="btn-check" id="btn-check-2-outlined" checked autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="btn-check-2-outlined">Electrician</label><br>
-                        </div>
-                        <!--filter-->
-                        <div>
-                            <input type="checkbox" class="btn-check" id="btn-check-3-outlined" checked autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="btn-check-3-outlined">General Work</label><br>
-                        </div>
-                        <!--filter-->
-                        <div>
-                            <input type="checkbox" class="btn-check" id="btn-check-4-outlined" checked autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="btn-check-4-outlined">Lawncare</label><br>
-                        </div>
-                    </div>                            
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="plumbing" value="plumbing" checked>
+                    <label class="form-check-label" for="plumbing">Plumbing</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="generalWork" value="generalWork" checked>
+                    <label class="form-check-label" for="generalWork">General Work</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="electrician" value="electrician" checked>
+                    <label class="form-check-label" for="electrician">Electrician</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="yardWork" value="yardWork" checked>
+                    <label class="form-check-label" for="yardWork">Yard Work</label>
                 </div>
             </div>
-        </div>
-        
-
-    </div>    
+            <button type="button" id="applyFilters" class="btn btn-primary">Apply</button>
+        </form>
+    </div>
+    
 
     <!-- footer code, importing from separate html file with JS  -->
     <footer id="footerPlaceholder"></footer>
-    
+
+    <script src="../../public/js/skeleton.js"></script>
+    <script src="../../public/js/tradeFilters.js"></script>
 </body>
+
+
+
 </html>
