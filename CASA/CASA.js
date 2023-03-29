@@ -26,6 +26,37 @@ app.get("alerts", function (req, res) {
     res.send(doc);
 });
 
+// opens up profile page
+app.get("/profile.html", function (req, res) {
+    let doc = fs.readFileSync("./app/html/profile.html", "utf8"); 
+    res.send(doc);
+});
+
+// opens up profile page
+app.get("/login.html", function (req, res) {
+    let doc = fs.readFileSync("./app/html/login.html", "utf8"); 
+    res.send(doc);
+});
+
+// opens up profile page
+app.get("/signup.html", function (req, res) {
+    let doc = fs.readFileSync("./app/html/signup.html", "utf8"); 
+    res.send(doc);
+});
+
+// opens up profile page
+app.get("/reset.html", function (req, res) {
+    let doc = fs.readFileSync("./app/html/reset.html", "utf8"); 
+    res.send(doc);
+});
+
+app.get("/tradeReg.html", function (req, res) {
+    let doc = fs.readFileSync("./app/html/tradeReg.html", "utf8"); 
+    res.send(doc);
+});
+
+
+
 
 
 // for resource not found (i.e., 404)

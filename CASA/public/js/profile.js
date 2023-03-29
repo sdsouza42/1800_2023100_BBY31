@@ -174,7 +174,7 @@ function getProfilePic() {
   var weatherHistoryButton = document.querySelector(".profile_item1 input[type='button']");
   weatherHistoryButton.addEventListener("click", function() {
     // Code to handle the "Weather History" button click event
-    window.location.href = "tradeReg.html";
+    window.location.href = "/tradeReg.html";
   });
 
   var setLocationButton = document.querySelector(".profile_item2 input[type='button']");
@@ -187,7 +187,7 @@ function getProfilePic() {
   signOutButton.addEventListener("click", function() {
     // Sign out the user and redirect to the login page
     auth.signOut().then(function() {
-      window.location.replace("login.html");
+      window.location.replace("/login.html");
     }).catch(function(error) {
       console.error("Error signing out:", error);
     });
