@@ -95,3 +95,29 @@ setTimeout(function() {  // delay function to give time for placeholders to load
     }
 }, 800)
 
+// add event listeners to the tip buttons
+setTimeout(function() {  // delay function to give time for placeholders to load in
+
+  // Get all the buttons with class="tip"
+  const tipButtons = document.querySelectorAll('button.buttonForTip');
+
+  // Add an event listener to each tip button
+  tipButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      
+      // Get the ID of the button's parent element
+      const buttonId = button.parentNode.id;
+
+      // Set the URL for the redirect
+      const url = `/html/tips.html`;
+
+      // Push the button ID to local storage
+      localStorage.setItem('buttonId', buttonId);
+
+      // Redirect to the new URL
+      window.location.href = url;
+    });
+  });
+}, 1200)
+
+
