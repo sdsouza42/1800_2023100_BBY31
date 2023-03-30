@@ -2,6 +2,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebas
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-storage.js";
+import { updateDoc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+
 
 document.addEventListener("DOMContentLoaded", main);
 
@@ -85,7 +87,45 @@ function main() {
 // This part is for pulling data from Cloud Firestore, extremly IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT
 // AGAIN, DO NOT MOVE OR ADJUST THIS CODE WITHOUT MY PERMISSION
 
-// Get a reference to the profile picture div
+const changeNameButton = document.getElementById("changeNameButton");
+changeNameButton.addEventListener("click", function() {
+  // Prompt the user for a new name
+  const newName = prompt("Enter your new name:");
+
+  // Check if the user entered a new name
+  if (newName && newName.trim()) {
+    // Update the user's name in the Firestore database
+    updateUserName(newName);
+  }
+
+  function updateUserName(newName) {
+    const currentUser = auth.currentUser;
+    const db = getFirestore();
+    const userRef = doc(db, 'user', currentUser.uid);
+  
+    // Update the user's name in the Firestore database
+    updateDoc(userRef, { name: newName })
+      .then(() => {
+        console.log("User name updated successfully");
+        // Update the user's name displayed on the page
+        document.getElementById("name").textContent = newName;
+      })
+      .catch((error) => {
+        console.error("Error updating user name:", error);
+      });
+  }
+  
+});
+
+
+
+
+//the end of upload profile img
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 const profilePic = document.getElementById("profilePic");
 
 // Add an event listener to the profile picture div
@@ -133,63 +173,31 @@ fileInput.addEventListener("change", function(event) {
   });
 });
 
-// Function to get the profile picture and display it on the page
-function getProfilePic() {
-  const currentUser = auth.currentUser;
-  const storageRef = ref(storage, 'profile/' + currentUser.uid);
-
-  getDownloadURL(storageRef).then((url) => {
-    const img = document.createElement('img');
-    img.src = url;
-    img.className = 'rounded-circle img-fluid';
-    img.style.width = '100px';
-
-    while (profilePic.firstChild) {
-      profilePic.removeChild(profilePic.firstChild);
-    }
-
-    profilePic.appendChild(img);
-  }).catch((error) => {
-    console.error(error);
-  });
-}
-
-
-
-
-
-//the end of upload profile img
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
 
 
 
 
 
   // Add event listeners for the button items
-  var weatherHistoryButton = document.querySelector(".profile_item1 input[type='button']");
-  weatherHistoryButton.addEventListener("click", function() {
-    // Code to handle the "Weather History" button click event
-    window.location.href = "/tradeReg.html";
-  });
+  // var weatherHistoryButton = document.querySelector(".profile_item1 input[type='button']");
+  // weatherHistoryButton.addEventListener("click", function() {
+  //   // Code to handle the "Weather History" button click event
+  //   window.location.href = "/tradeReg.html";
+  // });
 
-  var setLocationButton = document.querySelector(".profile_item2 input[type='button']");
-  setLocationButton.addEventListener("click", function() {
-    // Code to handle the "Set Location" button click event
+  // var setLocationButton = document.querySelector(".profile_item2 input[type='button']");
+  // setLocationButton.addEventListener("click", function() {
+  //   // Code to handle the "Set Location" button click event
    
-  });
+  // });
 
-  var signOutButton = document.querySelector(".profile_item3 input[type='button']");
-  signOutButton.addEventListener("click", function() {
-    // Sign out the user and redirect to the login page
-    auth.signOut().then(function() {
-      window.location.replace("/login.html");
-    }).catch(function(error) {
-      console.error("Error signing out:", error);
-    });
-  });
+  // var signOutButton = document.querySelector(".profile_item3 input[type='button']");
+  // signOutButton.addEventListener("click", function() {
+  //   // Sign out the user and redirect to the login page
+  //   auth.signOut().then(function() {
+  //     window.location.replace("/login.html");
+  //   }).catch(function(error) {
+  //     console.error("Error signing out:", error);
+  //   });
+  // });
 }

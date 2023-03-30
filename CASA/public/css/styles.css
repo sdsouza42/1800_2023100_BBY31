@@ -1,19 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Montserrat&display=swap');
+/* Fonts 
+font-family: 'Lato', sans-serif; Headers
+font-family: 'Montserrat', sans-serif; Body 
+*/
+
+
 /* for all pages */
 body {
     max-width: 500px;
-    background-color: lightblue;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Button changes */
+.btn-light{
+    background-color: #8a2be2;
+    color: white;
+}
+.btn-light:hover {
+    background-color: #ddcbff;
+    color: #8a2be2;
+}
+
+.btn-info{
+    background-color: #8a2be2;
+    color: white;
+    border: none !important;
+}
+
+.btn-info:hover{
+    background-color: #ddcbff;
+    color: #8a2be2;
+}
+.btn-primary{
+    background-color: #8a2be2;
+    color: white;
+    border: none !important;
+}
+.btn-primary:hover{
+    background-color: #ddcbff;
+    color: #8a2be2;
+}
+
+.btn-secondary{
+    background-color: #9e861e;
+    color: white;
+    border: none !important;
+}
+
+.btn-secondary:hover{
+    background-color: #e2bf2b;
+    color: black;
 }
 
 /* for nav bars across all pages */
 .navTop {
     position: fixed;
     top: 0;
-    background-color: #D9D9D9;
+    background-color: #8a2be2;
+    color: white;
     height: 60px;
     width: 100%;
     max-width: 500px;
     display: flex;
     justify-content: space-between;
+    font-family: 'Lato', sans-serif;
+    font-size: larger;
 }
 
 .navTop p {
@@ -23,7 +75,8 @@ body {
 .navBottom {
     position: fixed;
     bottom: 0;
-    background-color: #D9D9D9;
+    background-color: #8a2be2;
+    color: white;
     height: 60px;
     width: 100%;
     max-width: 500px;
@@ -44,7 +97,7 @@ body {
     grid-column:1;
     width: 100%;
     min-height: 20%;
-    background-color: lightblue;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,7 +147,7 @@ body {
     grid-column:1;
     width: 100%;
     min-height: 40vh;
-    background-color: lightskyblue;
+    background-color: white;
     display: block;
     text-align: center;
     justify-content: center;
@@ -106,7 +159,7 @@ body {
     grid-column:1;
     width: 100%;
     height: 10vh;
-    background-color: lightblue;
+    background-color: white;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -274,18 +327,30 @@ body {
 
 .profile_item1 {
     padding: 3px;
+    text-align: center;
+    
 }
 
 .profile_item2 {
     padding: 3px;
-    
+    text-align: center;
 }
 
 .profile_item3 {
     padding: 3px;
+    text-align: center;
+    
 }
 
 
+/* For Trade page */
+.tradeColor{
+    background-color: #f8f5ff;
+}
+
+.tradeColour{
+    background-color: white;
+}
 
 
 
