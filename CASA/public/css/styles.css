@@ -386,15 +386,19 @@ body {
 
 .profile_item1 {
     padding: 3px;
+    text-align: center;
+    
 }
 
 .profile_item2 {
     padding: 3px;
-    
+    text-align: center;
 }
 
 .profile_item3 {
     padding: 3px;
+    text-align: center;
+    
 }
 
 
