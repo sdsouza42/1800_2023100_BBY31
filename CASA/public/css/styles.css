@@ -103,6 +103,8 @@ body {
     align-items: center;
     text-align: center;
     font-size: 10pt;
+
+    overflow-x: auto;
 }
 
 #forecast-container td {
@@ -114,20 +116,20 @@ body {
 }
 
 /* Show the scrollbar when hovering over the element */
+#forecast-container:hover::-webkit-scrollbar {
+    display: block;
+}
 .weatherAlertPlaceholder:hover::-webkit-scrollbar {
     display: block;
 }
-
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
-
 ::-webkit-scrollbar-thumb {
     background-color: #a3a3a380;
     border-radius: 4px;
 }
-
 ::-webkit-scrollbar-track {
     background-color: #eeeeee00;
 }
@@ -234,12 +236,13 @@ body {
     left: 440px;
 }
 
-/* for ratings page */
-/* Eddie please add here */
-
-
-
 /* for savelist page */
+#saveListPlaceholder {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    height: calc(100vh - 120px);
+    display:grid;
+}
 
 
 /* for index page */

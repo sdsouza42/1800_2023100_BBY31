@@ -8,7 +8,7 @@ function doAll() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             currentUser = db.collection("user").doc(user.uid); //global
-            // console.log("user.uid: " + user.uid);
+            console.log("user.uid: " + user.uid);
 
 
             insertSavedTips();
@@ -32,18 +32,20 @@ function insertSavedTips() {
 
 
             saveListPlaceholderReplacement += 
-            "<button onclick=\""+bookmarks[i]+"\"()"+">"+bookmarks[i]+"</button>" +
-            "<script>" +
-                "function "+bookmarks[i]+"() {" +
-                  "const firebaseTipID = \""+bookmarks[i]+"\";" +
-                  "localStorage.setItem('firebaseTipID', firebaseTipID); // stores ID for the tip linked to this alert in localStorage" +
-                  "window.location.href = "+"/html/tips.html"+"; // redirect to the tips page" +
-                "}" +
+            "<button onclick=\""+bookmarks[i]+"ToTip()\""+">"+bookmarks[i]+"</button>" + "\n" +
+            "<script>" + "\n" +
+                "function "+bookmarks[i]+"ToTip() {" + "\n" +
+                  "const firebaseTipID = \""+bookmarks[i]+"\";" + "\n" +
+                  "localStorage.setItem('firebaseTipID', firebaseTipID);" + "\n" +
+                  "window.location.href = "+"\"/html/tips.html\""+";" + "\n" +
+                "}" + "\n" +
             "</script>";
+
+            // saveListPlaceholderReplacement += "test";
 
         }
 
-        console.log("saveListPlaceholderReplacement: " + saveListPlaceholderReplacement);
+        console.log(saveListPlaceholderReplacement);
 
         // replace saveListPlaceholder
         document.getElementById("saveListPlaceholder").innerHTML = saveListPlaceholderReplacement; 
