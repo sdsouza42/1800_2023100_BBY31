@@ -22,7 +22,7 @@ function displayProfileDynamically(collection) {
               // Update the id attribute
               newprofile.querySelector('.row').id = `profile${profileCounter}`;
 
-              newprofile.querySelector('.select-picture').src = '../../public/img/TradeProfile.svg';
+              newprofile.querySelector('.select-picture').src = '/img/TradeProfile.svg';
               newprofile.querySelector('.name-field').innerText = name;
               newprofile.querySelector('.trade-tags-field').innerText = tags.join(', ');
               newprofile.querySelector('.bname-field').innerText = bName;
@@ -33,7 +33,7 @@ function displayProfileDynamically(collection) {
               const selectVerified = newprofile.querySelector('.verified-field');
               if (selectVerified) {
                 if (verified) {
-                  selectVerified.src = '../../public/img/Verfied.svg';
+                  selectVerified.src = '/img/Verfied.svg';
                 } else {
                   selectVerified.style.display = 'none';
                 }

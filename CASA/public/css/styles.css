@@ -319,6 +319,11 @@ body {
 /* for profile page */
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Noto+Sans+Syloti+Nagri&display=swap');
 
+#profileContent {
+        margin-top:50%;
+}
+
+
 .container_profile {
     text-align: center;
     border-radius: 20px;
