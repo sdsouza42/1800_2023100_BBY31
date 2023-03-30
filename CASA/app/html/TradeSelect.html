@@ -87,7 +87,7 @@
                             <div class="row mt-3">
                                 <div class="col-12">
                                     <button type="button" id="applyFilters" class="btn btn-primary">Apply</button>
-                                    <button type="button" id="defaultButton" class="btn btn-secondary">Default</button>
+                                    <button type="button" id="defaultButton" class="btn btn-secondary">Reset</button>
                                 </div>
                             </div>
                         </form>
@@ -101,13 +101,13 @@
                 </div>
                         
                 <template id="tradeSelectTemplate">
-                    <div class="row mb-4">                            
-                        <div class="col-md-6">
-                            <div>
+                    <div class="row mb-4" id="profile0" style="display: flex;">                            
+                        <div class="col-md-4">
+                            <div class="image-wrapper">
                                 <img class="select-picture" src="...">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <div class="select-name pb-3">
                                 Name: <span class="name-field">test</span>
                             </div>
@@ -118,33 +118,45 @@
                                 Trade Tags: <span class="trade-tags-field">test</span>
                             </div>
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="select-verified pb-3">
                                         Verified: <img class="verified-field" src="...">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="select-distance pb-3">
                                         Distance: <span class="distance-field">test</span>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div>  
+                                        <button class="btn btn-link rounded-pill px-3 more-info-button" type="button">Contact information 
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-short" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" id="more-info" style="display: none;">
                             <div class="col-md-6">
                                 <div class="select-email pb-3">
                                     Email: <span class="email-field">test@example.com</span>
                                 </div>
                             </div>
+                
                             <div class="col-md-6">
                                 <div class="select-nnum pb-3">
                                     Phone: <span class="nnum-field">000</span>
                                 </div>
                             </div>
-                        </div>                        
+                        </div>                      
                     </div>
                 </template>
                 
+                
+                               
             </div>
         </div>
         
