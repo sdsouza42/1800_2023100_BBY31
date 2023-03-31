@@ -31,17 +31,16 @@ function insertSavedTips() {
             console.log(bookmarks[i]);
 
 
-            saveListPlaceholderReplacement += 
-            "<button onclick=\""+bookmarks[i]+"()\""+">"+bookmarks[i]+"</button>" + "\n" +
-            "<script>" + "\n" +
-                "function "+bookmarks[i]+"() {" + "\n" +
-                  "const firebaseTipID = \""+bookmarks[i]+"\";" + "\n" +
-                  "localStorage.setItem('firebaseTipID', firebaseTipID);" + "\n" +
-                  "window.location.href = "+"\"/html/tips.html\""+";" + "\n" +
-                "}" + "\n" +
-            "</script>";
+            saveListPlaceholderReplacement += `<div id="${alert}Placeholder" class="alertPlaceholder"></div>`; 
+            // "<button onclick=\""+bookmarks[i]+"()\""+">"+bookmarks[i]+"</button>" + "\n" +
+            // "<script>" + "\n" +
+            //     "function "+bookmarks[i]+"() {" + "\n" +
+            //       "const firebaseTipID = \""+bookmarks[i]+"\";" + "\n" +
+            //       "localStorage.setItem('firebaseTipID', firebaseTipID);" + "\n" +
+            //       "window.location.href = "+"\"/html/tips.html\""+";" + "\n" +
+            //     "}" + "\n" +
+            // "</script>";
 
-            // saveListPlaceholderReplacement += "test";
 
         }
 
@@ -53,8 +52,6 @@ function insertSavedTips() {
 
 
 
-        // $("#name-goes-here").text(user_Name); //jquery
-        // document.getElementByID("name-goes-here").innetText=user_Name;
     })
 }
 

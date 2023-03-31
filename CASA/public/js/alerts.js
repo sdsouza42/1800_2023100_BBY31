@@ -66,13 +66,14 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
 
       }
     }
+    createAlertsPlaceholders() // calls next function
   })
   .catch(error => console.error(error));
 
 
 
 // determine number of alerts needed to display = number of placeholders need to create
-setTimeout(function() {  // delay function to give time for API to populate triggers
+function createAlertsPlaceholders() {
     let alertsPlaceholder = "";
     for (let alert of alertTriggers) {
         // after iterating through list of alertTriggers, add each one to the placeholder html
@@ -81,13 +82,13 @@ setTimeout(function() {  // delay function to give time for API to populate trig
 
     // load individual placeholders inside main weatherAlertPlaceholder
     document.getElementById("weatherAlertPlaceholder").innerHTML = alertsPlaceholder;
-    // $("#weatherAlertPlaceholder").html(alertsPlaceholder);
-}, 400)
+    
+    replaceAlertsPlaceholders() // calls next function
+}
 
 
 // replace each placeholder with the actual alert
-setTimeout(function() {  // delay function to give time for placeholders to load in
-
+function replaceAlertsPlaceholders() {
     // Loop through each placeholder element
     for (let alert of alertTriggers) {
         $.ajax({
@@ -97,10 +98,11 @@ setTimeout(function() {  // delay function to give time for placeholders to load
             }
           });   
     }
-}, 800)
+    prepTipsPage(); // calls next function
+}
 
 // if there are no triggers, then display a none display
-setTimeout(function() {  // delay function to give time for placeholders to load in
+function diplayNone() {
     if (alertTriggers.length == 0) {
         $.ajax({
             url: '/html/alerts/alertNone.html',
@@ -109,11 +111,11 @@ setTimeout(function() {  // delay function to give time for placeholders to load
             }
         });
     }
-}, 800)
+}
 
 // add event listeners to the tip buttons
-setTimeout(function() {  // delay function to give time for placeholders to load in
 
+function prepTipsPage() {
   // Get all the buttons with class="tip"
   const tipButtons = document.querySelectorAll('button.buttonForTip');
 
@@ -134,6 +136,6 @@ setTimeout(function() {  // delay function to give time for placeholders to load
       window.location.href = url;
     });
   });
-}, 1200)
+}
 
 
