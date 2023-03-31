@@ -244,9 +244,13 @@ body {
     display:grid;
     grid-template-rows: repeat(5, 1fr);
 }
-/* #saveListPlaceholder > * {
-    max-height: 100px;
-} */
+#saveListPlaceholder > * {
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* give rounded corners */
+    border-radius: 10px;  
+}
 
 
 /* for login page */

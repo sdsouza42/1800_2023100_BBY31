@@ -75,7 +75,7 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
         return entryDate.getDate() === day && entryDate.getHours() === 12;
       });
 
-      console.log(nextDayForecast);
+      // console.log(nextDayForecast);
 
       // If we found a forecast entry for the day
       if (nextDayForecast) {
