@@ -30,18 +30,7 @@ function insertSavedTips() {
         for (let i = 0; i < bookmarks.length; i++) {
             // console.log(bookmarks[i]);
 
-
             saveListPlaceholderReplacement += "<button id=\""+bookmarks[i]+"\" class=\"goToTipButton\">"+bookmarks[i]+"</button>"; 
-            // "<button onclick=\""+bookmarks[i]+"()\""+">"+bookmarks[i]+"</button>" + "\n" +
-            // "<script>" + "\n" +
-            //     "function "+bookmarks[i]+"() {" + "\n" +
-            //       "const firebaseTipID = \""+bookmarks[i]+"\";" + "\n" +
-            //       "localStorage.setItem('firebaseTipID', firebaseTipID);" + "\n" +
-            //       "window.location.href = "+"\"/html/tips.html\""+";" + "\n" +
-            //     "}" + "\n" +
-            // "</script>";
-
-
         }
 
         // console.log(saveListPlaceholderReplacement);
@@ -60,8 +49,6 @@ function makeTipButtonsClickable() {
   
     // Add an event listener to each tip button
     tipButtons.forEach(button => {
-
-        
 
       button.addEventListener('click', function() {
         

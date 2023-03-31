@@ -19,16 +19,29 @@ function displayTip() {
           $("#tipForThisWeather").html(tipForThisWeather);
       } );
 
-    //   doc.querySelector('i').onclick = () => saveBookmark(docID);
+      // add event listener to bookmark icon
+      document.getElementById("saveTipButtonIcon").onclick = () => saveBookmark(firebaseTipID);
+
+      // make bookmark icon appear black if already saved
+      currentUser.get().then(userDoc => {
+        //get the user name
+        var bookmarks = userDoc.data().bookmarks;
+        if (bookmarks.includes(firebaseTipID)) {
+           document.getElementById('save-' + docID).innerText = 'bookmark';
+        }
+  })
 }
 displayTip();
 
+console.log(firebase.auth()); // Check if firebase.auth() returns a valid object
+console.log(db.collection("user")); // Check if db.collection("user") returns a valid object
 
-//Function that calls everything needed for the main page  
+// Get the user ID and database
 function doAll() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             currentUser = db.collection("user").doc(user.uid); //global
+            console.log(currentUser);
             console.log("user.uid: " + user.uid);
 
             insertNameFromFirestore();
@@ -42,22 +55,10 @@ function doAll() {
 }
 doAll();
 
-// Get savedTips
-function insertNameFromFirestore() {
-    currentUser.get().then(userDoc => {
-        //get the user name
-        var bookmarks = userDoc.data().bookmarks;
-        console.log("bookmarks: " + bookmarks);
-        // $("#name-goes-here").text(user_Name); //jquery
-        // document.getElementByID("name-goes-here").innetText=user_Name;
-    })
-}
-// Comment out the next line (we will call this function from doAll())
-// insertNameFromFirestore();
-
-function saveBookmark(hikeDocID) {
+// save tip to savelist
+function saveBookmark(firebaseTipID) {
     currentUser.set({
-            bookmarks: firebase.firestore.FieldValue.arrayUnion(hikeDocID)
+            bookmarks: firebase.firestore.FieldValue.arrayUnion(firebaseTipID)
         }, {
             merge: true
         })
@@ -65,7 +66,7 @@ function saveBookmark(hikeDocID) {
             console.log("bookmark has been saved for: " + currentUser);
             var iconID = 'save-' + hikeDocID;
             //console.log(iconID);
-						//this is to change the icon of the hike that was saved to "filled"
+			//this is to change the icon of the hike that was saved to "filled"
             document.getElementById(iconID).innerText = 'bookmark';
         });
 }

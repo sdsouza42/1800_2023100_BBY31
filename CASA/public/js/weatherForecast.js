@@ -6,17 +6,29 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
   .then(data => {
     // assigns the forecast entries to a constant variable forecast for easier access
     const forecast = data.list;
+    console.log(forecast);
     // creates a new Date object with the current date and time, which will be used to compare with the forecast entries to find the next forecast for each day
     const now = new Date();
     // initializes a counter variable that will be used to keep track of which day of the week we are currently processing
     let dayCounter = 0;
+    // need this to check if date is end of month and if so then restart counting for next month
+    const today = now.getDate();
     // iterates through each day of the week (i.e., seven days) to find the next forecast entry for that day
     for (let i = 1; i <= 7; i++) {
       // uses the find() method to search through the forecast entries to find the next forecast entry for the current day of the week. 
       // The find() method takes a callback function that returns true when the next forecast entry for the current day is found.
+      const nextDay = new Date(now.getTime());
+      nextDay.setDate(today + i);
+      if (nextDay.getMonth() !== now.getMonth()) {
+        nextDay.setDate(1);
+        nextDay.setMonth(now.getMonth() + 1);
+      }
       const nextDayForecast = forecast.find(entry => {
         const entryDate = new Date(entry.dt_txt);
-        return entryDate.getDate() === now.getDate() + i && entryDate.getHours() === 12;
+        return (
+          entryDate.getDate() === nextDay.getDate() &&
+          entryDate.getHours() === 12
+        );
       });
       // If we found a forecast entry for the day, update the corresponding table cells with the day, date, and temperature
       if (nextDayForecast) {
