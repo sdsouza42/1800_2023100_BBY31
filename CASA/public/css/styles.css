@@ -245,7 +245,7 @@ body {
 }
 
 
-/* for index page */
+/* for login page */
 #container_logo_img {
     text-align: center;
     padding-bottom: 25px;
@@ -258,9 +258,12 @@ body {
 
 #twitter {
     float: right;
-
-
 }
+
+.btn-primary {
+    background-color: #8a2be2 !important;
+  }
+  
 
 /* for register page */
 
