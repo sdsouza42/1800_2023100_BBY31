@@ -11,25 +11,64 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
     const now = new Date();
     // initializes a counter variable that will be used to keep track of which day of the week we are currently processing
     let dayCounter = 0;
-    // need this to check if date is end of month and if so then restart counting for next month
-    const today = now.getDate();
     // iterates through each day of the week (i.e., seven days) to find the next forecast entry for that day
-    for (let i = 1; i <= 7; i++) {
+    for (let i = 0; i < 7; i++) {
       // uses the find() method to search through the forecast entries to find the next forecast entry for the current day of the week. 
       // The find() method takes a callback function that returns true when the next forecast entry for the current day is found.
-      const nextDay = new Date(now.getTime());
-      nextDay.setDate(today + i);
-      if (nextDay.getMonth() !== now.getMonth()) {
-        nextDay.setDate(1);
-        nextDay.setMonth(now.getMonth() + 1);
-      }
+
+      
       const nextDayForecast = forecast.find(entry => {
         const entryDate = new Date(entry.dt_txt);
-        return (
-          entryDate.getDate() === nextDay.getDate() &&
-          entryDate.getHours() === 12
-        );
+        let day = now.getDate() + i;
+        // console.log(day);
+        // check if end of the month and need to adjust next dates
+        const month = now.getMonth();
+        // for months with 31 days, months start at 0
+        if ([0, 2, 4, 6, 7, 9, 11].includes(month)) {
+          switch(day) {
+            case 32: day = 1; break;
+            case 33: day = 2; break;
+            case 34: day = 3; break;
+            case 35: day = 4; break;
+            case 36: day = 5; break;
+            case 37: day = 6; break;
+            case 38: day = 7; break;
+          }
+        }
+        // for months with 30 days, months start at 0
+        else if ([3, 5, 8, 10].includes(month)) {
+          switch(day) {
+            case 31: day = 1; break;
+            case 32: day = 2; break;
+            case 33: day = 3; break;
+            case 34: day = 4; break;
+            case 35: day = 5; break;
+            case 36: day = 6; break;
+            case 37: day = 7; break;
+          }
+        }
+        // for february, currently not coded to handle leap years to save time
+        else if (month == 2) {
+          switch(day) {
+            case 29: day = 1; break;
+            case 30: day = 2; break;
+            case 31: day = 3; break;
+            case 32: day = 4; break;
+            case 33: day = 5; break;
+            case 34: day = 6; break;
+            case 35: day = 7; break;
+          }
+        }
+        console.log("entryDate.getDate():" + entryDate.getDate() + " && " + "day:" + day);
+        console.log("entryDate.getHours():" + entryDate.getHours());
+        console.log((entryDate.getDate() === day) + " && " + (entryDate.getHours() === 12));
+        // console.log(entryDate.getDate() === day + i && entryDate.getHours() === 12);
+
+        return entryDate.getDate() === day && entryDate.getHours() === 12;
       });
+
+      console.log(nextDayForecast);
+
       // If we found a forecast entry for the day, update the corresponding table cells with the day, date, and temperature
       if (nextDayForecast) {
         // creates a new Date object for the forecast entry's date and time
@@ -52,80 +91,3 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
     }
   })
   .catch(error => console.error(error));
-// console.log("Weather forecast API loaded successfully.");
-
-
-// fetch('https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric&appid=81572cf71c6ecc82b6b56e2063b640fe')
-//   .then(response => response.json())
-//   .then(data => {
-//     // Process the weather data and update the HTML
-//     const forecast = data.list.filter(item => item.dt_txt.includes('12:00:00'));
-//     const table = document.createElement('table');
-//     const tbody = document.createElement('tbody');
-//     forecast.forEach(item => {
-//       const tr = document.createElement('tr');
-//       const dateTd = document.createElement('td');
-//       const tempTd = document.createElement('td');
-//       const conditionsTd = document.createElement('td');
-//       dateTd.innerText = new Date(item.dt * 1000).toLocaleDateString();
-//       tempTd.innerText = `${item.main.temp}°C`;
-//       conditionsTd.innerText = item.weather[0].description;
-//       tr.appendChild(dateTd);
-//       tr.appendChild(tempTd);
-//       tr.appendChild(conditionsTd);
-//       tbody.appendChild(tr);
-//     });
-//     table.appendChild(tbody);
-//     document.getElementById('forecast-container').appendChild(table);
-//     console.log("Weather API ran successfully.")
-//   });
-
-
-
-// // Replace YOUR_API_KEY with your actual API key
-// const apiKey = "YOUR_API_KEY";
-// // Replace CITY_NAME with the city for which you want weather information
-// const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=CITY_NAME&appid=${apiKey}`;
-
-// fetch(apiUrl)
-//     .then(response => response.json())
-//     .then(data => {
-//         const weatherInfo = document.getElementById("weather-info");
-//         const temp = data.main.temp;
-//         const humidity = data.main.humidity;
-//         const windSpeed = data.wind.speed;
-//         weatherInfo.innerHTML = `
-//             <p>Temperature: ${temp} &#8451;</p>
-//             <p>Humidity: ${humidity}%</p>
-//             <p>Wind Speed: ${windSpeed} m/s</p>
-//         `; 
-//     })
-//     .catch(error => console.error(error));
-
-
-// const apiKey = 'YOUR_API_KEY';
-// const apiUrl = `https://dd.weather.gc.ca/citypage_weather/v1/forecast7days/${citycode}_metric.json?appkey=${apiKey}`;
-
-// // bc-74 is citycode for YVR
-
-// fetch(apiUrl)
-// 	.then(response => response.json())
-// 	.then(data => {
-// 		const weatherContainer = document.getElementById('forecast-container');
-// 		const forecast = data.forecasts;
-
-// 		let html = '';
-
-// 		forecast.forEach(day => {
-// 			html += `
-// 				<div>
-// 					<h3>${day.date}</h3>
-// 					<p>${day.temperature} &#8451;</p> //&#8451 = celcius 
-// 					<p>${day.short_desc}</p>
-// 				</div>
-// 			`;
-// 		});
-
-// 		weatherContainer.innerHTML = html;
-// 	})
-// 	.catch(error => console.error(error));
