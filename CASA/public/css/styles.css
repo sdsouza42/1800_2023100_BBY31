@@ -199,7 +199,6 @@ body {
     margin-top: 60px;
     margin-bottom: 60px;
     height: calc(100vh - 120px);
-    display:grid;
 }
 
 #tip {
@@ -216,9 +215,9 @@ body {
 } */
 
 #tipSaveButton {
-    position: fixed;
-    top: 40;
-    left: 40;
+    position: absolute;
+    top: 65px;
+    left: 550px;
 }
 
 #tipHelpButton {

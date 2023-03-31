@@ -19,7 +19,7 @@ function displayTip() {
       } );
 
       // add event listener to bookmark icon
-      document.getElementById("saveTipButtonIcon").onclick = () => saveBookmark(firebaseTipID);
+      document.getElementById("tipSaveButtonIcon").onclick = () => saveBookmark(firebaseTipID);
 
       // make bookmark icon appear solid fill if already saved
       if (currentUser) {
@@ -28,7 +28,7 @@ function displayTip() {
             window.bookmarks = userDoc.data().bookmarks;
             // console.log("truth: " + bookmarks.includes(firebaseTipID));
             if (bookmarks.includes(firebaseTipID)) {
-                document.getElementById("saveTipButtonIcon").innerText = 'bookmark';
+                document.getElementById("tipSaveButtonIcon").innerText = 'bookmark';
             }
         })
     }
@@ -61,7 +61,7 @@ function saveBookmark(firebaseTipID) {
             bookmarks: firebase.firestore.FieldValue.arrayRemove(firebaseTipID),
         }).then(function() {
             console.log(firebaseTipID + " bookmark has been removed for: " + userID);
-            document.getElementById("saveTipButtonIcon").innerText = 'bookmark_border';
+            document.getElementById("tipSaveButtonIcon").innerText = 'bookmark_border';
             // update bookmarks variable so can hit the button again
             bookmarks.splice(bookmarks.indexOf(firebaseTipID), 1);
         });
@@ -75,7 +75,7 @@ function saveBookmark(firebaseTipID) {
         .then(function () {
             console.log(firebaseTipID + " bookmark has been saved for: " + userID);
 			//this is to change the icon of the hike that was saved to "filled"
-            document.getElementById("saveTipButtonIcon").innerText = 'bookmark';
+            document.getElementById("tipSaveButtonIcon").innerText = 'bookmark';
             // update bookmarks variable so can hit the button again
             bookmarks.push(firebaseTipID);
         });
