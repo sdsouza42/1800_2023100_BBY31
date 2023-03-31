@@ -66,6 +66,8 @@ body {
     justify-content: space-between;
     font-family: 'Lato', sans-serif;
     font-size: larger;
+    /* z-index here to make sure bookmark button appears beneath it */
+    z-index: 1; 
 }
 
 .navTop p {
