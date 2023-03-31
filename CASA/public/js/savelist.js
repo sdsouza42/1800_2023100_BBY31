@@ -32,9 +32,9 @@ function insertSavedTips() {
 
 
             saveListPlaceholderReplacement += 
-            "<button onclick=\""+bookmarks[i]+"ToTip()\""+">"+bookmarks[i]+"</button>" + "\n" +
+            "<button onclick=\""+bookmarks[i]+"()\""+">"+bookmarks[i]+"</button>" + "\n" +
             "<script>" + "\n" +
-                "function "+bookmarks[i]+"ToTip() {" + "\n" +
+                "function "+bookmarks[i]+"() {" + "\n" +
                   "const firebaseTipID = \""+bookmarks[i]+"\";" + "\n" +
                   "localStorage.setItem('firebaseTipID', firebaseTipID);" + "\n" +
                   "window.location.href = "+"\"/html/tips.html\""+";" + "\n" +

@@ -242,7 +242,11 @@ body {
     margin-bottom: 60px;
     height: calc(100vh - 120px);
     display:grid;
+    grid-template-rows: repeat(5, 1fr);
 }
+/* #saveListPlaceholder > * {
+    max-height: 100px;
+} */
 
 
 /* for index page */
