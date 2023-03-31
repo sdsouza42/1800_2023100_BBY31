@@ -18,24 +18,65 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
 
     // initializes a counter variable that will be used to keep track of which day of the week we are currently processing
     let dayCounter = 0;
-    
 
-    
     // iterates through each day of the week (i.e., seven days) to find the next forecast entry for that day
-    for (let i = 1; i <= 7; i++) {
+    for (let i = 0; i < 7; i++) {
       // uses the find() method to search through the forecast entries to find the next forecast entry for the current day of the week. 
       // The find() method takes a callback function that returns true when the next forecast entry for the current day is found.
       const nextDayForecast = forecast.find(entry => {
         const entryDate = new Date(entry.dt_txt);
+        let day = now.getDate() + i;
+        // console.log(day);
         
-        // console.log("entryDate: " + entryDate);
-        // console.log("entry.dt_txt: " + entry.dt_txt);
-        // console.log("entryDate.getDate(): " + entryDate.getDate());
-        // console.log("matchDate: " + now.getDate() + i && entryDate.getHours() === 12);
+        // check if end of the month and need to adjust next dates
+        const month = now.getMonth();
+        // for months with 31 days, months start at 0
+        if ([0, 2, 4, 6, 7, 9, 11].includes(month)) {
+          switch(day) {
+            case 32: day = 1; break;
+            case 33: day = 2; break;
+            case 34: day = 3; break;
+            case 35: day = 4; break;
+            case 36: day = 5; break;
+            case 37: day = 6; break;
+            case 38: day = 7; break;
+          }
+        }
+        // for months with 30 days, months start at 0
+        else if ([3, 5, 8, 10].includes(month)) {
+          switch(day) {
+            case 31: day = 1; break;
+            case 32: day = 2; break;
+            case 33: day = 3; break;
+            case 34: day = 4; break;
+            case 35: day = 5; break;
+            case 36: day = 6; break;
+            case 37: day = 7; break;
+          }
+        }
+        // for february, currently not coded to handle leap years to save time
+        else if (month == 2) {
+          switch(day) {
+            case 29: day = 1; break;
+            case 30: day = 2; break;
+            case 31: day = 3; break;
+            case 32: day = 4; break;
+            case 33: day = 5; break;
+            case 34: day = 6; break;
+            case 35: day = 7; break;
+          }
+        }
         
-        return entryDate.getDate() === now.getDate() + i && entryDate.getHours() === 12;
+        // console.log("entryDate.getDate():" + entryDate.getDate() + " && " + "day:" + day);
+        // console.log("entryDate.getHours():" + entryDate.getHours());
+        // console.log((entryDate.getDate() === day) + " && " + (entryDate.getHours() === 12));
+        // console.log(entryDate.getDate() === day + i && entryDate.getHours() === 12);
+        
+        return entryDate.getDate() === day && entryDate.getHours() === 12;
       });
-      console.log("nextDayForecast: " + nextDayForecast);
+
+      console.log(nextDayForecast);
+
       // If we found a forecast entry for the day
       if (nextDayForecast) {
 

@@ -1,12 +1,12 @@
 // weather forecast API
-fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric&appid=81572cf71c6ecc82b6b56e2063b640fe")
+fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric&appid=81572cf71c6ecc82b6b56e2063b640fe") //5day forecast, 16 day forecast need to pay
   // converts the response into a JSON object that can be more easily worked with in JavaScript
   .then(response => response.json())
   // specifies a callback function to be executed when the data is successfully retrieved. The retrieved data contains a list of forecast entries
   .then(data => {
     // assigns the forecast entries to a constant variable forecast for easier access
     const forecast = data.list;
-    console.log(forecast);
+    // console.log(forecast);
     // creates a new Date object with the current date and time, which will be used to compare with the forecast entries to find the next forecast for each day
     const now = new Date();
     // initializes a counter variable that will be used to keep track of which day of the week we are currently processing
@@ -15,12 +15,12 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
     for (let i = 0; i < 7; i++) {
       // uses the find() method to search through the forecast entries to find the next forecast entry for the current day of the week. 
       // The find() method takes a callback function that returns true when the next forecast entry for the current day is found.
-
       
       const nextDayForecast = forecast.find(entry => {
         const entryDate = new Date(entry.dt_txt);
         let day = now.getDate() + i;
         // console.log(day);
+
         // check if end of the month and need to adjust next dates
         const month = now.getMonth();
         // for months with 31 days, months start at 0
@@ -59,15 +59,16 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
             case 35: day = 7; break;
           }
         }
-        console.log("entryDate.getDate():" + entryDate.getDate() + " && " + "day:" + day);
-        console.log("entryDate.getHours():" + entryDate.getHours());
-        console.log((entryDate.getDate() === day) + " && " + (entryDate.getHours() === 12));
+
+        // console.log("entryDate.getDate():" + entryDate.getDate() + " && " + "day:" + day);
+        // console.log("entryDate.getHours():" + entryDate.getHours());
+        // console.log((entryDate.getDate() === day) + " && " + (entryDate.getHours() === 12));
         // console.log(entryDate.getDate() === day + i && entryDate.getHours() === 12);
 
         return entryDate.getDate() === day && entryDate.getHours() === 12;
       });
 
-      console.log(nextDayForecast);
+      // console.log(nextDayForecast);
 
       // If we found a forecast entry for the day, update the corresponding table cells with the day, date, and temperature
       if (nextDayForecast) {
