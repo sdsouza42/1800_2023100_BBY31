@@ -7,7 +7,7 @@ font-family: 'Montserrat', sans-serif; Body
 
 /* for all pages */
 body {
-    max-width: 500px;
+    max-width: 600px;
     background-color: white;
     font-family: 'Montserrat', sans-serif;
 }
@@ -61,7 +61,7 @@ body {
     color: white;
     height: 60px;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     display: flex;
     justify-content: space-between;
     font-family: 'Lato', sans-serif;
@@ -79,7 +79,7 @@ body {
     color: white;
     height: 60px;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     display: flex;
     justify-content: space-between;
 }
@@ -207,17 +207,18 @@ body {
     grid-column: 1 / span 2;
     width: 100%;
     background-color: lightskyblue;
-
+    padding-right: 20px;
+    padding-left: 20px
 }
 
+/* #tip > h2,h3 {
+    text-align: center;
+} */
+
 #tipSaveButton {
-    grid-row: 6;
-    grid-column: 1;
-    /* min-height: 20%; */
-    background-color: lightcyan;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: fixed;
+    top: 40;
+    left: 40;
 }
 
 #tipHelpButton {
