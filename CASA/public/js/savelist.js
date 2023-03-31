@@ -24,7 +24,6 @@ doAll();
 // Display user's saved tips
 function insertSavedTips() {
     currentUser.get().then(userDoc => {
-        //get the user name
         var bookmarks = userDoc.data().bookmarks; // holds the array of saved tips firebase IDs
 
         for (let i = 0; i < bookmarks.length; i++) {

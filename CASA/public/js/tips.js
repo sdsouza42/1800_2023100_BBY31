@@ -25,8 +25,8 @@ function displayTip() {
       if (currentUser) {
         currentUser.get().then(userDoc => {
             //get the user name
-            var bookmarks = userDoc.data().bookmarks;
-            console.log("truth: " + bookmarks.includes(firebaseTipID));
+            window.bookmarks = userDoc.data().bookmarks;
+            // console.log("truth: " + bookmarks.includes(firebaseTipID));
             if (bookmarks.includes(firebaseTipID)) {
                 document.getElementById("saveTipButtonIcon").innerText = 'bookmark';
             }
@@ -39,6 +39,7 @@ function doAll() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             currentUser = db.collection("user").doc(user.uid); //global
+            window.userID = user.uid;
             // console.log(currentUser);
             // console.log("user.uid: " + user.uid);
             displayTip(); // display tip after get the user details
@@ -51,19 +52,34 @@ function doAll() {
 }
 doAll();
 
-// save tip to savelist
+// save and unsave tip to savelist
 function saveBookmark(firebaseTipID) {
-    currentUser.set({
+    
+    // unsave tip
+    if (bookmarks.includes(firebaseTipID)) {
+        currentUser.update({
+            bookmarks: firebase.firestore.FieldValue.arrayRemove(firebaseTipID),
+        }).then(function() {
+            console.log(firebaseTipID + " bookmark has been removed for: " + userID);
+            document.getElementById("saveTipButtonIcon").innerText = 'bookmark_border';
+            // update bookmarks variable so can hit the button again
+            bookmarks.splice(bookmarks.indexOf(firebaseTipID), 1);
+        });
+    } else {
+        // save tip
+        currentUser.set({
             bookmarks: firebase.firestore.FieldValue.arrayUnion(firebaseTipID)
         }, {
             merge: true
         })
         .then(function () {
-            console.log("bookmark has been saved for: " + user.uid);
-            //console.log(iconID);
+            console.log(firebaseTipID + " bookmark has been saved for: " + userID);
 			//this is to change the icon of the hike that was saved to "filled"
             document.getElementById("saveTipButtonIcon").innerText = 'bookmark';
+            // update bookmarks variable so can hit the button again
+            bookmarks.push(firebaseTipID);
         });
+    }
 }
 
-// unsave tip
+
