@@ -15,23 +15,23 @@ function doAll() {
         } else {
             // No user is signed in.
             console.log("No user is signed in");
-            window.location.href = "/html/login.html";
+            window.location.href = "/html/login.html"; //redirects to the login page
         }
     });
 }
 doAll();
 
-// Get savedTips
+// Display user's saved tips
 function insertSavedTips() {
     currentUser.get().then(userDoc => {
         //get the user name
-        var bookmarks = userDoc.data().bookmarks;
+        var bookmarks = userDoc.data().bookmarks; // holds the array of saved tips firebase IDs
 
         for (let i = 0; i < bookmarks.length; i++) {
-            console.log(bookmarks[i]);
+            // console.log(bookmarks[i]);
 
 
-            saveListPlaceholderReplacement += `<div id="${alert}Placeholder" class="alertPlaceholder"></div>`; 
+            saveListPlaceholderReplacement += "<button id=\""+bookmarks[i]+"\" class=\"goToTipButton\">"+bookmarks[i]+"</button>"; 
             // "<button onclick=\""+bookmarks[i]+"()\""+">"+bookmarks[i]+"</button>" + "\n" +
             // "<script>" + "\n" +
             //     "function "+bookmarks[i]+"() {" + "\n" +
@@ -44,16 +44,35 @@ function insertSavedTips() {
 
         }
 
-        console.log(saveListPlaceholderReplacement);
+        // console.log(saveListPlaceholderReplacement);
 
         // replace saveListPlaceholder
         document.getElementById("saveListPlaceholder").innerHTML = saveListPlaceholderReplacement; 
       
-
-
-
+        makeTipButtonsClickable(); // calls next function
     })
 }
 
+// add event listeners to the tip buttons
+function makeTipButtonsClickable() {
+    // Get all the buttons with class="tip"
+    const tipButtons = document.querySelectorAll('button.goToTipButton');
+  
+    // Add an event listener to each tip button
+    tipButtons.forEach(button => {
 
+        
 
+      button.addEventListener('click', function() {
+        
+        // Get the ID of the button's parent element
+        let buttonId = button.id;
+  
+        // Push the button ID to local storage
+        localStorage.setItem('firebaseTipID', buttonId);
+  
+        // Redirect to the tips page
+        window.location.href = `/html/tips.html`;
+      });
+    });
+  }

@@ -19,7 +19,7 @@ function displayTip() {
           $("#tipForThisWeather").html(tipForThisWeather);
       } );
 
-      doc.querySelector('i').onclick = () => saveBookmark(docID);
+    //   doc.querySelector('i').onclick = () => saveBookmark(docID);
 }
 displayTip();
 

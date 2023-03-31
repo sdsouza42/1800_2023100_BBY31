@@ -114,7 +114,6 @@ function diplayNone() {
 }
 
 // add event listeners to the tip buttons
-
 function prepTipsPage() {
   // Get all the buttons with class="tip"
   const tipButtons = document.querySelectorAll('button.buttonForTip');
