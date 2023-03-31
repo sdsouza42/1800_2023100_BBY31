@@ -131,6 +131,7 @@ changeNameButton.addEventListener("click", function() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //profile img upload IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT
 // AGAIN, DO NOT MOVE OR ADJUST THIS CODE WITHOUT MY PERMISSION
+
 // Get a reference to the profile picture div
 const profilePic = document.getElementById("profilePic");
 
@@ -173,6 +174,11 @@ fileInput.addEventListener("change", function(event) {
       }
       // Append the new img element
       profilePic.appendChild(img);
+
+      // Update the navigation bar profile picture
+      const navProfilePic = document.getElementById("navProfilePic");
+      navProfilePic.src = url;
+      localStorage.setItem("navProfilePic", url);
     });
   }).catch((error) => {
     console.error(error);
@@ -195,15 +201,43 @@ function getProfilePic() {
     }
 
     profilePic.appendChild(img);
+
+    // Update the navigation bar profile picture
+    const navProfilePic = document.getElementById("navProfilePic");
+    navProfilePic.src = url;
+    localStorage.setItem("navProfilePic", url);
+
   }).catch((error) => {
     console.error(error);
   });
 }
 
+
+
+
+
+
 //the end of profile img upload
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
