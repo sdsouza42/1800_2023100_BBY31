@@ -272,6 +272,15 @@ body {
 .btn-primary {
     background-color: #8a2be2 !important;
   }
+
+
+#login_reset {
+    text-decoration: none;
+}
+
+#login_signup {
+    text-decoration: none;
+}
   
 
 /* for register page */
@@ -343,7 +352,6 @@ body {
 .profile_item1 {
     padding: 3px;
     text-align: center;
-    
 }
 
 .profile_item2 {
@@ -354,8 +362,26 @@ body {
 .profile_item3 {
     padding: 3px;
     text-align: center;
-    
 }
+
+
+
+
+/* for reset page */
+
+#resetcard {
+    align-items: center;
+    padding-top: 50%;
+}
+
+#reset_return {
+    grid-gap: 10px;
+    text-decoration: none;
+}
+
+
+
+
 
 
 /* For Trade page */
