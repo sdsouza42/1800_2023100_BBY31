@@ -146,10 +146,16 @@ function main() {
 
   // Add an event listener to the profile picture div
   profilePic.addEventListener("click", function () {
-    // Open the file upload dialog box
-    document.getElementById("fileInput").click();
-  });
+    // Get a reference to the file input element
+    const fileInput = document.getElementById("fileInput");
 
+    // Check if fileInput is not null
+    if (fileInput) {
+      // Open the file upload dialog box
+      fileInput.click();
+    }
+  });
+  
   // Get a reference to the Firebase Storage instance
   const storage = getStorage();
 
@@ -204,23 +210,29 @@ function main() {
       img.src = url;
       img.className = 'rounded-circle img-fluid';
       img.style.width = '100px';
-
+    
       while (profilePic.firstChild) {
         profilePic.removeChild(profilePic.firstChild);
       }
-
+    
       profilePic.appendChild(img);
-
+    
       // Update the navigation bar profile picture
       const navProfilePic = document.getElementById("navProfilePic");
-      navProfilePic.src = url;
-      localStorage.setItem("navProfilePic", url);
-
+      if (!url) {
+        navProfilePic.src = "/img/Icon_UserProfile.png";
+        localStorage.removeItem("navProfilePic");
+      } else {
+        navProfilePic.src = url;
+        localStorage.setItem("navProfilePic", url);
+      }
+    
     }).catch((error) => {
       console.error(error);
     });
   }
-
+}
+    
 
 
 
@@ -274,4 +286,3 @@ function main() {
   //     console.error("Error signing out:", error);
   //   });
   // });
-}

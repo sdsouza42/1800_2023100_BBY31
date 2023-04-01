@@ -36,14 +36,22 @@
     <!-- photo -->
     <div class="card" style="border-radius: 15px;">
       <div class="card-body text-center">
-        <div class="profile_pic" id="profilePic">
-          <input type="file" id="fileInput" style="display: none;">
-          <img src="/img/profile_photo.jpg" class="rounded-circle img-fluid" style="width: 100px;" />
+        <div class="profile-container">
+          <label for="fileInput" class="profile_pic_label" id="profilePicLabel">
+            <input type="file" id="fileInput" style="display: none;">
+            <div class="profile_pic" id="profilePic">
+              <img src="/img/profile_photo.jpg" class="rounded-circle img-fluid" style="width: 100px;" />
+            </div>
+          </label>
+          <div class="name-container">
+            <span id="name">[name]</span>
+          </div>
         </div>
+        
 
         <!-- personal details -->
 
-        <span id="name">[name]</span>
+
 
         <p class="role_email">
           <span id="role">[role]</span>
