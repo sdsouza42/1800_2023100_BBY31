@@ -200,16 +200,17 @@ body {
 #tipsContent {
     margin-top: 60px;
     margin-bottom: 60px;
-    height: calc(100vh - 120px);
+    /* height: calc(100vh - 120px); */
+    
 }
 
 #tip {
-    grid-row: 1 / span 5;
-    grid-column: 1 / span 2;
     width: 100%;
     background-color: lightskyblue;
     padding-right: 20px;
-    padding-left: 20px
+    padding-left: 20px;
+    margin-bottom: 0;
+    
 }
 
 /* #tip > h2,h3 {
@@ -223,13 +224,12 @@ body {
 }
 
 #tipHelpButton {
-    grid-row: 6;
-    grid-column: 2;
     /* min-height: 20%; */
     background-color: lightcyan;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 0;
 }
 
 #tipRatingButton {

@@ -29,7 +29,7 @@ function insertSavedTips() {
         for (let i = 0; i < bookmarks.length; i++) {
             // console.log(bookmarks[i]);
 
-            saveListPlaceholderReplacement += "<button id=\""+bookmarks[i]+"\" class=\"goToTipButton\">"+bookmarks[i]+"</button>"; 
+            saveListPlaceholderReplacement += "<button title=\"Read Tip\" id=\""+bookmarks[i]+"\" class=\"goToTipButton\">"+bookmarks[i]+"</button>"; 
         }
 
         // console.log(saveListPlaceholderReplacement);
