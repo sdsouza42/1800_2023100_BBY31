@@ -76,6 +76,11 @@ font-family: 'Montserrat', sans-serif; Body
     margin-top: 15px;
 }
 
+#pageTitle {
+    font-weight: bold;
+    font-size: 20pt;
+}
+
 .navBottom {
     position: fixed;
     bottom: 0;
@@ -86,6 +91,14 @@ font-family: 'Montserrat', sans-serif; Body
     max-width: 600px;
     display: flex;
     justify-content: space-between;
+}
+
+.navBottomButton:hover {
+    transform: translateY(-5px);
+}
+
+.navTopButton:hover {
+    transform: translateY(5px);
 }
 
 /********************* alerts.html ***********************/
