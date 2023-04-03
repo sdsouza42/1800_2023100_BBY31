@@ -115,7 +115,7 @@ font-family: 'Montserrat', sans-serif; Body
     grid-column: 1;
     width: 100%;
     min-height: 20%;
-    background-color: white;
+    background-color: lightblue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,6 +123,9 @@ font-family: 'Montserrat', sans-serif; Body
     font-size: 10pt;
 
     overflow-x: auto;
+
+    /* give rounded corners */
+    border-radius: 10px;
 }
 
 #forecast-container td {
@@ -204,6 +207,12 @@ font-family: 'Montserrat', sans-serif; Body
     margin-top: 0;
 }
 
+#tipSaveButton {
+    position:absolute;
+    top: 60px;
+    left: 550px;
+}
+
 
 /********************* savelist.html ***********************/
 #saveListPlaceholder {
@@ -221,6 +230,7 @@ font-family: 'Montserrat', sans-serif; Body
     /* give rounded corners */
     border-radius: 10px;
 }
+
 
 
 /********************* login.html ***********************/
