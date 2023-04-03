@@ -1,3 +1,6 @@
+// @author Felix
+// called on all pages to insert the navbars
+
 $(document).ready(function () {
   // inserts top NavBar
   $.ajax({

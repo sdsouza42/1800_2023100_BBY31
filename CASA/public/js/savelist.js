@@ -1,3 +1,4 @@
+// @author Felix
 //Global variable pointing to the current user's Firestore document
 var currentUser;   
 var bookmarks;

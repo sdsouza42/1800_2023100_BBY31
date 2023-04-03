@@ -1,5 +1,6 @@
+// @author Felix
 // use API to git list of triggers such as temperature and time of year
-// two types of alertTriggers: 1. weather API forecast event based. 2. time/date of year based
+// two types of alertTriggers: 1. weather API forecast event based. 2. time/date of year based (not currently worked in)
 
 const alertTriggers = [];  // populate this with strings of triggers
 

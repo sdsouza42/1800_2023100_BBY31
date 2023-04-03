@@ -1,3 +1,6 @@
+// @author Felix
+// displays info from firebase to tips.html
+
 //Global variable pointing to the current user's Firestore document
 var currentUser;   
 

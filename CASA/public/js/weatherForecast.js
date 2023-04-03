@@ -1,3 +1,6 @@
+// @author Felix
+// used to get weather API display on alerts.html
+
 // weather forecast API
 fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric&appid=81572cf71c6ecc82b6b56e2063b640fe") //5day forecast, 16 day forecast need to pay
   // converts the response into a JSON object that can be more easily worked with in JavaScript
