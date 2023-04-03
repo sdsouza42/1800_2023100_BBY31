@@ -39,7 +39,7 @@ font-family: 'Montserrat', sans-serif; Body
 }
 
 .btn-primary:hover {
-    background-color: #ddcbff;
+    background-color: #ddcbff !important;
     color: #8a2be2;
 }
 
@@ -52,6 +52,7 @@ font-family: 'Montserrat', sans-serif; Body
 .btn-secondary:hover {
     background-color: #e2bf2b;
     color: black;
+    border: none !important;
 }
 
 /********************* Nav bars ***********************/
@@ -390,4 +391,5 @@ body {
 
 .tradeColour {
     background-color: white;
+    font-size: 14pt;
 }
