@@ -182,6 +182,10 @@ font-family: 'Montserrat', sans-serif; Body
     align-items: center;
 }
 
+.weatherAlert img {
+    /* rounded corners */
+    border-radius: 10px;
+}
 
 /********************* tips.html ***********************/
 #tipsContent {
@@ -213,6 +217,10 @@ font-family: 'Montserrat', sans-serif; Body
     align-items: center;
     margin-top: 0;
     padding-bottom: 20px;
+
+    /* width: 150px;
+    height: 75px;
+    font-size: 24pt; */
 }
 
 #tipSaveButton {
@@ -224,6 +232,10 @@ font-family: 'Montserrat', sans-serif; Body
     transform: translateY(-5px);
 }
 
+#tipForThisWeather img {
+    /* rounded corners */
+    border-radius: 10px;
+}
 
 
 /********************* savelist.html ***********************/
@@ -395,4 +407,10 @@ body {
 .tradeColour {
     background-color: white;
     font-size: 14pt;
+}
+
+#tradeSelectContent {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    background-image: linear-gradient(to bottom, #59516e, #7b738b, #ded6dc);
 }
