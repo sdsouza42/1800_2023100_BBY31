@@ -59,7 +59,7 @@ font-family: 'Montserrat', sans-serif; Body
 .navTop {
     position: fixed;
     top: 0;
-    background-color: #8a2be2;
+    background-color: #363142;
     color: white;
     height: 60px;
     width: 100%;
@@ -84,7 +84,7 @@ font-family: 'Montserrat', sans-serif; Body
 .navBottom {
     position: fixed;
     bottom: 0;
-    background-color: #8a2be2;
+    background-color: #7a748b;
     color: white;
     height: 60px;
     width: 100%;
@@ -190,13 +190,12 @@ font-family: 'Montserrat', sans-serif; Body
     padding-top: 10px;
     /* height: calc(100vh - 120px); */
 
-    background-image: linear-gradient(to bottom, #59516e, #7b738b, #ded6dc);
+    background-image: linear-gradient(to bottom, #59516e, #7b738b, #b0a7b8);
     color: whitesmoke;
 }
 
 #tip {
     width: 100%;
-    background-image: linear-gradient(to bottom, #59516e, #7b738b, #ded6dc);
     padding-right: 20px;
     padding-left: 20px;
     margin-bottom: 0;
@@ -209,11 +208,11 @@ font-family: 'Montserrat', sans-serif; Body
 
 #tipHelpButton {
     /* min-height: 20%; */
-    background-color: lightcyan;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 0;
+    padding-bottom: 20px;
 }
 
 #tipSaveButton {
@@ -221,6 +220,10 @@ font-family: 'Montserrat', sans-serif; Body
     top: 70px;
     left: 540px;
 }
+#tipSaveButton:hover {
+    transform: translateY(-5px);
+}
+
 
 
 /********************* savelist.html ***********************/
