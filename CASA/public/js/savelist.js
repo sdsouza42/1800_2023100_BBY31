@@ -30,16 +30,16 @@ function insertSavedTips() {
         for (let i = 0; i < bookmarks.length; i++) {
             console.log(bookmarks[i]);
 
-
+            // a bit of js injecting to replicate the alerts placeholders
             saveListPlaceholderReplacement += 
-            "<button onclick=\""+bookmarks[i]+"ToTip()\""+">"+bookmarks[i]+"</button>" + "\n" +
             "<script>" + "\n" +
                 "function "+bookmarks[i]+"ToTip() {" + "\n" +
                   "const firebaseTipID = \""+bookmarks[i]+"\";" + "\n" +
                   "localStorage.setItem('firebaseTipID', firebaseTipID);" + "\n" +
                   "window.location.href = "+"\"/html/tips.html\""+";" + "\n" +
                 "}" + "\n" +
-            "</script>";
+            "</script>" + "\n" +
+            "<button onclick=\""+bookmarks[i]+"ToTip()\""+">"+bookmarks[i]+"</button>";
 
             // saveListPlaceholderReplacement += "test";
 
