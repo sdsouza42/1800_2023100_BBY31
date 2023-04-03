@@ -1,7 +1,6 @@
 /********************* For all pages ***********************/
 body {
     max-width: 600px;
-    background-color: white;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -107,6 +106,7 @@ font-family: 'Montserrat', sans-serif; Body
     margin-bottom: 60px;
     height: calc(100vh - 120px);
     display: grid;
+    background-image: linear-gradient(to bottom, #59516e, #7b738b, #ded6dc);
 }
 
 #forecast-container {
@@ -114,17 +114,20 @@ font-family: 'Montserrat', sans-serif; Body
     grid-column: 1;
     width: 100%;
     min-height: 20%;
-    background-color: lightblue;
+    background-color: #50a8b9;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-size: 10pt;
-
+    margin-bottom: 10pt;
     overflow-x: auto;
 
     /* give rounded corners */
-    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 #forecast-container td {
@@ -159,9 +162,11 @@ font-family: 'Montserrat', sans-serif; Body
     margin-right: 10px;
     margin-bottom: 10px;
 
-    /* border-radius: 25px; */
-    /* background: #73AD21; */
-    /* padding: 10px; */
+    /* rounded corners */
+    border-radius: 10px;
+
+    /* transparent background */
+    background-color: transparent;
 }
 
 #weatherAlert {
@@ -176,17 +181,21 @@ font-family: 'Montserrat', sans-serif; Body
     align-items: center;
 }
 
+
 /********************* tips.html ***********************/
 #tipsContent {
     margin-top: 60px;
     margin-bottom: 60px;
+    padding-top: 10px;
     /* height: calc(100vh - 120px); */
 
+    background-image: linear-gradient(to bottom, #59516e, #7b738b, #ded6dc);
+    color: whitesmoke;
 }
 
 #tip {
     width: 100%;
-    background-color: lightskyblue;
+    background-image: linear-gradient(to bottom, #59516e, #7b738b, #ded6dc);
     padding-right: 20px;
     padding-left: 20px;
     margin-bottom: 0;
@@ -208,8 +217,8 @@ font-family: 'Montserrat', sans-serif; Body
 
 #tipSaveButton {
     position:absolute;
-    top: 60px;
-    left: 550px;
+    top: 70px;
+    left: 540px;
 }
 
 
