@@ -3,11 +3,10 @@ var currentUser;
 
 // get the tip ID previously stored from the corresponding alert
 const firebaseTipID = localStorage.getItem('firebaseTipID');
-console.log("Tip has loaded from: " + firebaseTipID);
+// console.log("Tip has loaded from: " + firebaseTipID);
 
 // populate page with the relevant tip from tips collections
 function displayTip() {
-
   db.collection( "Tips" )
       .doc( firebaseTipID )
       .get()
@@ -19,20 +18,31 @@ function displayTip() {
           $("#tipForThisWeather").html(tipForThisWeather);
       } );
 
-      doc.querySelector('i').onclick = () => saveBookmark(docID);
+      // add event listener to bookmark icon
+      document.getElementById("tipSaveButtonIcon").onclick = () => saveBookmark(firebaseTipID);
+
+      // make bookmark icon appear solid fill if already saved
+      if (currentUser) {
+        currentUser.get().then(userDoc => {
+            //get the user name
+            window.bookmarks = userDoc.data().bookmarks;
+            // console.log("truth: " + bookmarks.includes(firebaseTipID));
+            if (bookmarks.includes(firebaseTipID)) {
+                document.getElementById("tipSaveButtonIcon").innerText = 'bookmark';
+            }
+        })
+    }
 }
-displayTip();
 
-
-//Function that calls everything needed for the main page  
+// Get the user ID and database
 function doAll() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             currentUser = db.collection("user").doc(user.uid); //global
-            console.log("user.uid: " + user.uid);
-
-            insertNameFromFirestore();
-            // displayCardsDynamically("hikes");
+            window.userID = user.uid;
+            // console.log(currentUser);
+            // console.log("user.uid: " + user.uid);
+            displayTip(); // display tip after get the user details
         } else {
             // No user is signed in.
             console.log("No user is signed in");
@@ -42,30 +52,34 @@ function doAll() {
 }
 doAll();
 
-// Get savedTips
-function insertNameFromFirestore() {
-    currentUser.get().then(userDoc => {
-        //get the user name
-        var bookmarks = userDoc.data().bookmarks;
-        console.log("bookmarks: " + bookmarks);
-        // $("#name-goes-here").text(user_Name); //jquery
-        // document.getElementByID("name-goes-here").innetText=user_Name;
-    })
-}
-// Comment out the next line (we will call this function from doAll())
-// insertNameFromFirestore();
-
-function saveBookmark(hikeDocID) {
-    currentUser.set({
-            bookmarks: firebase.firestore.FieldValue.arrayUnion(hikeDocID)
+// save and unsave tip to savelist
+function saveBookmark(firebaseTipID) {
+    
+    // unsave tip
+    if (bookmarks.includes(firebaseTipID)) {
+        currentUser.update({
+            bookmarks: firebase.firestore.FieldValue.arrayRemove(firebaseTipID),
+        }).then(function() {
+            console.log(firebaseTipID + " bookmark has been removed for: " + userID);
+            document.getElementById("tipSaveButtonIcon").innerText = 'bookmark_border';
+            // update bookmarks variable so can hit the button again
+            bookmarks.splice(bookmarks.indexOf(firebaseTipID), 1);
+        });
+    } else {
+        // save tip
+        currentUser.set({
+            bookmarks: firebase.firestore.FieldValue.arrayUnion(firebaseTipID)
         }, {
             merge: true
         })
         .then(function () {
-            console.log("bookmark has been saved for: " + currentUser);
-            var iconID = 'save-' + hikeDocID;
-            //console.log(iconID);
-						//this is to change the icon of the hike that was saved to "filled"
-            document.getElementById(iconID).innerText = 'bookmark';
+            console.log(firebaseTipID + " bookmark has been saved for: " + userID);
+			//this is to change the icon of the hike that was saved to "filled"
+            document.getElementById("tipSaveButtonIcon").innerText = 'bookmark';
+            // update bookmarks variable so can hit the button again
+            bookmarks.push(firebaseTipID);
         });
+    }
 }
+
+

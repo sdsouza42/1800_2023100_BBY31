@@ -11,18 +11,72 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
   .then(data => {
     // assigns the forecast entries to a constant variable forecast for easier access
     const forecast = data.list;
+
     // creates a new Date object with the current date and time, which will be used to compare with the forecast entries to find the next forecast for each day
     const now = new Date();
+    // console.log("now: " + now);
+
     // initializes a counter variable that will be used to keep track of which day of the week we are currently processing
     let dayCounter = 0;
+
     // iterates through each day of the week (i.e., seven days) to find the next forecast entry for that day
-    for (let i = 1; i <= 7; i++) {
+    for (let i = 0; i < 7; i++) {
       // uses the find() method to search through the forecast entries to find the next forecast entry for the current day of the week. 
       // The find() method takes a callback function that returns true when the next forecast entry for the current day is found.
       const nextDayForecast = forecast.find(entry => {
         const entryDate = new Date(entry.dt_txt);
-        return entryDate.getDate() === now.getDate() + i && entryDate.getHours() === 12;
+        let day = now.getDate() + i;
+        // console.log(day);
+        
+        // check if end of the month and need to adjust next dates
+        const month = now.getMonth();
+        // for months with 31 days, months start at 0
+        if ([0, 2, 4, 6, 7, 9, 11].includes(month)) {
+          switch(day) {
+            case 32: day = 1; break;
+            case 33: day = 2; break;
+            case 34: day = 3; break;
+            case 35: day = 4; break;
+            case 36: day = 5; break;
+            case 37: day = 6; break;
+            case 38: day = 7; break;
+          }
+        }
+        // for months with 30 days, months start at 0
+        else if ([3, 5, 8, 10].includes(month)) {
+          switch(day) {
+            case 31: day = 1; break;
+            case 32: day = 2; break;
+            case 33: day = 3; break;
+            case 34: day = 4; break;
+            case 35: day = 5; break;
+            case 36: day = 6; break;
+            case 37: day = 7; break;
+          }
+        }
+        // for february, currently not coded to handle leap years to save time
+        else if (month == 2) {
+          switch(day) {
+            case 29: day = 1; break;
+            case 30: day = 2; break;
+            case 31: day = 3; break;
+            case 32: day = 4; break;
+            case 33: day = 5; break;
+            case 34: day = 6; break;
+            case 35: day = 7; break;
+          }
+        }
+        
+        // console.log("entryDate.getDate():" + entryDate.getDate() + " && " + "day:" + day);
+        // console.log("entryDate.getHours():" + entryDate.getHours());
+        // console.log((entryDate.getDate() === day) + " && " + (entryDate.getHours() === 12));
+        // console.log(entryDate.getDate() === day + i && entryDate.getHours() === 12);
+        
+        return entryDate.getDate() === day && entryDate.getHours() === 12;
       });
+
+      // console.log(nextDayForecast);
+
       // If we found a forecast entry for the day
       if (nextDayForecast) {
 
@@ -30,7 +84,7 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
 
         // creates a new Date object for the forecast entry's date and time
         const temperature = Math.round(nextDayForecast.main.temp);      
-        console.log(temperature);
+        // console.log("Temperature: " + temperature);
         
             // if the temperature forecast is below 0C trigger adding "alertFreeze" string to alertTriggers list
             if (temperature < 0 || true) {  // added OR true statement so it populates for demo
@@ -43,9 +97,9 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
             }
 
         const pop = forecast.pop;
-        console.log(pop);
+        // console.log("pop: " + pop);
         const rain = forecast.rain ? forecast.rain["3h"] : 0;    
-        console.log(rain);
+        // console.log("rain: " + rain);
         // if forecast includes heavy rain fall trigger adding "alertRain" string to alertTriggers list 
         if (pop > 70 || rain > 10 || true) {  // added OR true statement so it populates for demo
             alertTriggers.push("alertRain");
@@ -66,13 +120,14 @@ fetch("https://api.openweathermap.org/data/2.5/forecast?q=Vancouver&units=metric
 
       }
     }
+    createAlertsPlaceholders() // calls next function
   })
   .catch(error => console.error(error));
 
 
 
 // determine number of alerts needed to display = number of placeholders need to create
-setTimeout(function() {  // delay function to give time for API to populate triggers
+function createAlertsPlaceholders() {
     let alertsPlaceholder = "";
     for (let alert of alertTriggers) {
         // after iterating through list of alertTriggers, add each one to the placeholder html
@@ -81,13 +136,13 @@ setTimeout(function() {  // delay function to give time for API to populate trig
 
     // load individual placeholders inside main weatherAlertPlaceholder
     document.getElementById("weatherAlertPlaceholder").innerHTML = alertsPlaceholder;
-    // $("#weatherAlertPlaceholder").html(alertsPlaceholder);
-}, 400)
+    
+    replaceAlertsPlaceholders() // calls next function
+}
 
 
 // replace each placeholder with the actual alert
-setTimeout(function() {  // delay function to give time for placeholders to load in
-
+function replaceAlertsPlaceholders() {
     // Loop through each placeholder element
     for (let alert of alertTriggers) {
         $.ajax({
@@ -97,10 +152,11 @@ setTimeout(function() {  // delay function to give time for placeholders to load
             }
           });   
     }
-}, 800)
+    prepTipsPage(); // calls next function
+}
 
 // if there are no triggers, then display a none display
-setTimeout(function() {  // delay function to give time for placeholders to load in
+function diplayNone() {
     if (alertTriggers.length == 0) {
         $.ajax({
             url: '/html/alerts/alertNone.html',
@@ -109,11 +165,10 @@ setTimeout(function() {  // delay function to give time for placeholders to load
             }
         });
     }
-}, 800)
+}
 
 // add event listeners to the tip buttons
-setTimeout(function() {  // delay function to give time for placeholders to load in
-
+function prepTipsPage() {
   // Get all the buttons with class="tip"
   const tipButtons = document.querySelectorAll('button.buttonForTip');
 
@@ -134,6 +189,6 @@ setTimeout(function() {  // delay function to give time for placeholders to load
       window.location.href = url;
     });
   });
-}, 1200)
+}
 
 

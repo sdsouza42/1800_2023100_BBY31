@@ -48,7 +48,8 @@ window.signup = function (e) {
     phone: phone.value,
     passwords: passwords.value,
     userType: userType,
-    select: select.value
+    select: select.value,
+    bookmarks: [] // Add empty bookmarks array
   }
   createUserWithEmailAndPassword(auth, obj.email, obj.passwords)
   .then(function (success) {

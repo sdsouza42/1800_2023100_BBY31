@@ -1,8 +1,7 @@
 # Project Title
 
 ## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
+Our team BBY31 is developing an app to help homeowners and tenants prepare their home for extreme weather by notifying them of recommended actions and suggesting local services to fulfill their home needs.
 
 ## 2. Names of Contributors
 List team members and/or short bio's here...  
@@ -21,9 +20,9 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
 Here are the steps ...
-* ...
-* ...
-* ...
+* Download and install node express within the CASA folder
+* Open command line and run "node CASA.js" to start the localhost
+* Go to localhost.
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
@@ -33,7 +32,7 @@ Here are some known bugs:
 
 ## 6. Features for Future
 What we'd like to build in the future:
-* ...
+* Current weather API only checks 5 days forecast using Open Weather API. They have a 16day forecast I would have liked to use but you need to buy a subscription.
 * ...
 * ...
 	

@@ -25,7 +25,7 @@ function main() {
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // This part is for pulling data from Cloud Firestore, extremly IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT
   // AGAIN, DO NOT MOVE OR ADJUST THIS CODE WITHOUT MY PERMISSION
-  
+
   // Get a reference to the currently authenticated user
   const auth = getAuth();
 
@@ -46,7 +46,7 @@ function main() {
 
         const db = getFirestore();
         const userRef = doc(db, 'user', user.uid);
-        
+
         getDoc(userRef).then((docSnapshot) => {
           if (docSnapshot.exists()) {
             const data = docSnapshot.data();
@@ -54,9 +54,18 @@ function main() {
               nameElement.textContent = data.name;
             } else {
               nameElement.textContent = user.displayName;
-            }            
+            }
             document.getElementById("email").textContent = data.email || user.email;
             document.getElementById("role").textContent = data.userType || userType;
+            // Show or hide the "Add Trader Info" button based on the user's role
+            // Show or hide the "Add Trader Info" button based on the user's role
+            const addTraderInfoButton = document.getElementById("addTraderInfoButton");
+            if ((data.userType || userType) === "trader") {
+              addTraderInfoButton.style.visibility = "visible";
+            } else {
+              addTraderInfoButton.style.visibility = "hidden";
+            }
+
           } else {
             console.log("No such data!");
           }
@@ -71,107 +80,184 @@ function main() {
     }
   });
 
-//The end of the User data, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT
-//IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //The end of the User data, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT
+  //IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//profile img upload to firebase
-// This part is for pulling data from Cloud Firestore, extremly IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT
-// AGAIN, DO NOT MOVE OR ADJUST THIS CODE WITHOUT MY PERMISSION
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //profile name change IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT
+  // AGAIN, DO NOT MOVE OR ADJUST THIS CODE WITHOUT MY PERMISSION
 
-const changeNameButton = document.getElementById("changeNameButton");
-changeNameButton.addEventListener("click", function() {
-  // Prompt the user for a new name
-  const newName = prompt("Enter your new name:");
+  const changeNameButton = document.getElementById("changeNameButton");
+  changeNameButton.addEventListener("click", function () {
+    // Prompt the user for a new name
+    const newName = prompt("Enter your new name:");
 
-  // Check if the user entered a new name
-  if (newName && newName.trim()) {
-    // Update the user's name in the Firestore database
-    updateUserName(newName);
-  }
+    // Check if the user entered a new name
+    if (newName && newName.trim()) {
+      // Update the user's name in the Firestore database
+      updateUserName(newName);
+    }
 
-  function updateUserName(newName) {
+    function updateUserName(newName) {
+      const currentUser = auth.currentUser;
+      const db = getFirestore();
+      const userRef = doc(db, 'user', currentUser.uid);
+
+      // Update the user's name in the Firestore database
+      updateDoc(userRef, { name: newName })
+        .then(() => {
+          console.log("User name updated successfully");
+          // Update the user's name displayed on the page
+          document.getElementById("name").textContent = newName;
+        })
+        .catch((error) => {
+          console.error("Error updating user name:", error);
+        });
+    }
+
+  });
+
+
+
+
+  //the end of profile name change
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //profile img upload IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT, IMPORTANT
+  // AGAIN, DO NOT MOVE OR ADJUST THIS CODE WITHOUT MY PERMISSION
+
+  // Get a reference to the profile picture div
+  const profilePic = document.getElementById("profilePic");
+
+  // Add an event listener to the profile picture div
+  profilePic.addEventListener("click", function () {
+    // Get a reference to the file input element
+    const fileInput = document.getElementById("fileInput");
+
+    // Check if fileInput is not null
+    if (fileInput) {
+      // Open the file upload dialog box
+      fileInput.click();
+    }
+  });
+  
+  // Get a reference to the Firebase Storage instance
+  const storage = getStorage();
+
+  // Get a reference to the file input element
+  const fileInput = document.getElementById("fileInput");
+
+  // Add an event listener to the file input element
+  fileInput.addEventListener("change", function (event) {
+    // Get the currently authenticated user
     const currentUser = auth.currentUser;
-    const db = getFirestore();
-    const userRef = doc(db, 'user', currentUser.uid);
-  
-    // Update the user's name in the Firestore database
-    updateDoc(userRef, { name: newName })
-      .then(() => {
-        console.log("User name updated successfully");
-        // Update the user's name displayed on the page
-        document.getElementById("name").textContent = newName;
-      })
-      .catch((error) => {
-        console.error("Error updating user name:", error);
+
+    // Get the selected file
+    const file = event.target.files[0];
+
+    // Create a reference to the file in Firebase Storage
+    const storageRef = ref(storage, 'profile/' + currentUser.uid);
+
+    // Upload the file to Firebase Storage
+    uploadBytes(storageRef, file).then((snapshot) => {
+      console.log('Uploaded a blob or file!');
+      // Get the download URL of the uploaded file
+      getDownloadURL(storageRef).then((url) => {
+        // Update the profile picture on the page
+        const img = document.createElement('img');
+        img.src = url;
+        img.className = 'rounded-circle img-fluid';
+        img.style.width = '100px';
+        // Remove all child elements of the profilePic div
+        while (profilePic.firstChild) {
+          profilePic.removeChild(profilePic.firstChild);
+        }
+        // Append the new img element
+        profilePic.appendChild(img);
+
+        // Update the navigation bar profile picture
+        const navProfilePic = document.getElementById("navProfilePic");
+        navProfilePic.src = url;
+        localStorage.setItem("navProfilePic", url);
       });
-  }
-  
-});
+    }).catch((error) => {
+      console.error(error);
+    });
+  });
 
+  // Function to get the profile picture and display it on the page
+  function getProfilePic() {
+    const currentUser = auth.currentUser;
+    const storageRef = ref(storage, 'profile/' + currentUser.uid);
 
-
-
-//the end of upload profile img
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-const profilePic = document.getElementById("profilePic");
-
-// Add an event listener to the profile picture div
-profilePic.addEventListener("click", function() {
-  // Open the file upload dialog box
-  document.getElementById("fileInput").click();
-});
-
-// Get a reference to the Firebase Storage instance
-const storage = getStorage();
-
-// Get a reference to the file input element
-const fileInput = document.getElementById("fileInput");
-
-// Add an event listener to the file input element
-fileInput.addEventListener("change", function(event) {
-  // Get the currently authenticated user
-  const currentUser = auth.currentUser;
-
-  // Get the selected file
-  const file = event.target.files[0];
-
-  // Create a reference to the file in Firebase Storage
-  const storageRef = ref(storage, 'profile/' + currentUser.uid);
-
-  // Upload the file to Firebase Storage
-  uploadBytes(storageRef, file).then((snapshot) => {
-    console.log('Uploaded a blob or file!');
-    // Get the download URL of the uploaded file
     getDownloadURL(storageRef).then((url) => {
-      // Update the profile picture on the page
       const img = document.createElement('img');
       img.src = url;
       img.className = 'rounded-circle img-fluid';
       img.style.width = '100px';
-      // Remove all child elements of the profilePic div
+    
       while (profilePic.firstChild) {
         profilePic.removeChild(profilePic.firstChild);
       }
-      // Append the new img element
+    
       profilePic.appendChild(img);
+    
+      // Update the navigation bar profile picture
+      const navProfilePic = document.getElementById("navProfilePic");
+      if (!url) {
+        navProfilePic.src = "/img/Icon_UserProfile.png";
+        localStorage.removeItem("navProfilePic");
+      } else {
+        navProfilePic.src = url;
+        localStorage.setItem("navProfilePic", url);
+      }
+    
+    }).catch((error) => {
+      console.error(error);
     });
-  }).catch((error) => {
-    console.error(error);
-  });
-});
+  }
+}
+    
+
+
+
+
+
+  //the end of profile img upload
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -188,7 +274,7 @@ fileInput.addEventListener("change", function(event) {
   // var setLocationButton = document.querySelector(".profile_item2 input[type='button']");
   // setLocationButton.addEventListener("click", function() {
   //   // Code to handle the "Set Location" button click event
-   
+
   // });
 
   // var signOutButton = document.querySelector(".profile_item3 input[type='button']");
@@ -200,4 +286,3 @@ fileInput.addEventListener("change", function(event) {
   //     console.error("Error signing out:", error);
   //   });
   // });
-}

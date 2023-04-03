@@ -18,7 +18,8 @@ const firebaseConfig = {
   
     auth.sendPasswordResetEmail(email)
       .then(() => {
-        alert('Password reset email sent');
+        alert('Password reset email sent, Please Check Your Email.');
+        window.location.href = '/html/login.html';
       })
       .catch((error) => {
         alert(error.message);

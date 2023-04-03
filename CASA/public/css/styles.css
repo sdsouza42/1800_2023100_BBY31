@@ -7,48 +7,51 @@ font-family: 'Montserrat', sans-serif; Body
 
 /* for all pages */
 body {
-    max-width: 500px;
+    max-width: 600px;
     background-color: white;
     font-family: 'Montserrat', sans-serif;
 }
 
 /* Button changes */
-.btn-light{
+.btn-light {
     background-color: #8a2be2;
     color: white;
 }
+
 .btn-light:hover {
     background-color: #ddcbff;
     color: #8a2be2;
 }
 
-.btn-info{
+.btn-info {
     background-color: #8a2be2;
     color: white;
     border: none !important;
 }
 
-.btn-info:hover{
-    background-color: #ddcbff;
-    color: #8a2be2;
-}
-.btn-primary{
-    background-color: #8a2be2;
-    color: white;
-    border: none !important;
-}
-.btn-primary:hover{
+.btn-info:hover {
     background-color: #ddcbff;
     color: #8a2be2;
 }
 
-.btn-secondary{
+.btn-primary {
+    background-color: #8a2be2;
+    color: white;
+    border: none !important;
+}
+
+.btn-primary:hover {
+    background-color: #ddcbff;
+    color: #8a2be2;
+}
+
+.btn-secondary {
     background-color: #9e861e;
     color: white;
     border: none !important;
 }
 
-.btn-secondary:hover{
+.btn-secondary:hover {
     background-color: #e2bf2b;
     color: black;
 }
@@ -61,11 +64,13 @@ body {
     color: white;
     height: 60px;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     display: flex;
     justify-content: space-between;
     font-family: 'Lato', sans-serif;
     font-size: larger;
+    /* z-index here to make sure bookmark button appears beneath it */
+    z-index: 1;
 }
 
 .navTop p {
@@ -79,7 +84,7 @@ body {
     color: white;
     height: 60px;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     display: flex;
     justify-content: space-between;
 }
@@ -89,12 +94,12 @@ body {
     margin-top: 60px;
     margin-bottom: 60px;
     height: calc(100vh - 120px);
-    display:grid;
+    display: grid;
 }
 
 #forecast-container {
-    grid-row:1;
-    grid-column:1;
+    grid-row: 1;
+    grid-column: 1;
     width: 100%;
     min-height: 20%;
     background-color: white;
@@ -119,17 +124,21 @@ body {
 #forecast-container:hover::-webkit-scrollbar {
     display: block;
 }
+
 .weatherAlertPlaceholder:hover::-webkit-scrollbar {
     display: block;
 }
+
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
+
 ::-webkit-scrollbar-thumb {
     background-color: #a3a3a380;
     border-radius: 4px;
 }
+
 ::-webkit-scrollbar-track {
     background-color: #eeeeee00;
 }
@@ -138,15 +147,15 @@ body {
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
-    
+
     /* border-radius: 25px; */
     /* background: #73AD21; */
     /* padding: 10px; */
 }
 
 #weatherAlert {
-    grid-row:2;
-    grid-column:1;
+    grid-row: 2;
+    grid-column: 1;
     width: 100%;
     min-height: 40vh;
     background-color: white;
@@ -157,8 +166,8 @@ body {
 }
 
 #previousNotifications {
-    grid-row:3;
-    grid-column:1;
+    grid-row: 3;
+    grid-column: 1;
     width: 100%;
     height: 10vh;
     background-color: white;
@@ -172,14 +181,14 @@ body {
     margin-top: 60px;
     margin-bottom: 60px;
     height: calc(100vh - 120px);
-    display:grid;
+    display: grid;
 }
 
-#previousNotificationsContent > * {
+#previousNotificationsContent>* {
     width: 100%;
     min-height: 40vh;
     display: block;
-    text-align:center;
+    text-align: center;
     justify-content: center;
     align-items: center;
 }
@@ -187,9 +196,11 @@ body {
 #previousNotification1 {
     background-color: lightskyblue;
 }
+
 #previousNotification2 {
     background-color: lightseagreen;
 }
+
 #previousNotification3 {
     background-color: lightskyblue;
 }
@@ -198,36 +209,36 @@ body {
 #tipsContent {
     margin-top: 60px;
     margin-bottom: 60px;
-    height: calc(100vh - 120px);
-    display:grid;
+    /* height: calc(100vh - 120px); */
+
 }
 
 #tip {
-    grid-row: 1 / span 5;
-    grid-column: 1 / span 2;
     width: 100%;
     background-color: lightskyblue;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-bottom: 0;
 
 }
 
+/* #tip > h2,h3 {
+    text-align: center;
+} */
+
 #tipSaveButton {
-    grid-row: 6;
-    grid-column: 1;
-    /* min-height: 20%; */
-    background-color: lightcyan;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    top: 65px;
+    left: 550px;
 }
 
 #tipHelpButton {
-    grid-row: 6;
-    grid-column: 2;
     /* min-height: 20%; */
     background-color: lightcyan;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 0;
 }
 
 #tipRatingButton {
@@ -241,11 +252,20 @@ body {
     margin-top: 60px;
     margin-bottom: 60px;
     height: calc(100vh - 120px);
-    display:grid;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+}
+
+#saveListPlaceholder>* {
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* give rounded corners */
+    border-radius: 10px;
 }
 
 
-/* for index page */
+/* for login page */
 #container_logo_img {
     text-align: center;
     padding-bottom: 25px;
@@ -258,9 +278,21 @@ body {
 
 #twitter {
     float: right;
-
-
 }
+
+.btn-primary {
+    background-color: #8a2be2 !important;
+}
+
+
+#login_reset {
+    text-decoration: none;
+}
+
+#login_signup {
+    text-decoration: none;
+}
+
 
 /* for register page */
 
@@ -299,14 +331,37 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 
+/* Responsive layout */
+@media (min-width: 1000px) {
+   
+#signup_title {
+    font-size: 25px;
+  }
+
+#signup_img img {
+    display: none;
+} 
+
+body h3 {
+    font-size: 20px;
+}
+
+body {
+    font-size: 10px;
+}
+
+}
+
+
+
 /* for terms and services */
-#terms h1{
+#terms h1 {
     text-align: center;
     align-items: center;
     padding-top: 20px;
 }
 
-#terms p{
+#terms p {
     text-align: center;
     font-family: 'Shantell Sans', cursive;
 }
@@ -317,21 +372,20 @@ body {
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Noto+Sans+Syloti+Nagri&display=swap');
 
 #profileContent {
-        margin-top:50%;
+    margin-top: 35%;
 }
 
 
 .container_profile {
     text-align: center;
     border-radius: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 10px;
 }
 
 .profile_item1 {
     padding: 3px;
     text-align: center;
-    
 }
 
 .profile_item2 {
@@ -342,19 +396,39 @@ body {
 .profile_item3 {
     padding: 3px;
     text-align: center;
-    
 }
+
+.profile_pic_label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+
+
+
+/* for reset page */
+
+#resetcard {
+    align-items: center;
+    padding-top: 50%;
+}
+
+#reset_return {
+    grid-gap: 10px;
+    text-decoration: none;
+}
+
+
+
+
 
 
 /* For Trade page */
-.tradeColor{
+.tradeColor {
     background-color: #f8f5ff;
 }
 
-.tradeColour{
+.tradeColour {
     background-color: white;
 }
-
-
-
-
