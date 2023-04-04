@@ -16,7 +16,7 @@ function doAll() {
         } else {
             // No user is signed in.
             console.log("No user is signed in");
-            window.location.href = "/html/login.html"; //redirects to the login page
+            window.location.href = "../../app/html/login.html"; //redirects to the login page
         }
     });
 }
@@ -59,7 +59,7 @@ function makeTipButtonsClickable() {
         localStorage.setItem('firebaseTipID', buttonId);
   
         // Redirect to the tips page
-        window.location.href = `/html/tips.html`;
+        window.location.href = `../../app/html/tips.html`;
       });
     });
   }

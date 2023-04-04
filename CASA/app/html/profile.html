@@ -5,7 +5,7 @@
 
 <head>
   <title>CASA</title>
-  <link href="/img/CASA_img.jpg" rel="icon" type="image/x-icon" />
+  <link href="../../public/img/CASA_img.jpg" rel="icon" type="image/x-icon" />
 
   <meta name="Profile Page">
   <meta charset="utf-8">
@@ -15,7 +15,7 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="../../public/css/styles.css" />
 
   <!-- JS here-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -41,7 +41,7 @@
           <label for="fileInput" class="profile_pic_label" id="profilePicLabel">
             <input type="file" id="fileInput" style="display: none;">
             <div class="profile_pic" id="profilePic">
-              <img src="/img/profile_photo.jpg" class="rounded-circle img-fluid" style="width: 100px;" />
+              <img src="../../public/img/profile_photo.jpg" class="rounded-circle img-fluid" style="width: 100px;" />
             </div>
           </label>
           <div class="name-container">
@@ -90,7 +90,7 @@
           <div class="col-md-4 mb-3 mb-md-0">
             <div class="profile_item1">
               <input class="btn btn-primary" id="addTraderInfoButton" type="button" value="Add Trader Info"
-              style="width: 185px; visibility: hidden;" onclick="location.href='/html/tradeReg.html';">
+              style="width: 185px; visibility: hidden;" onclick="location.href='../../app/html/tradeReg.html';">
             </div>
           </div>
           <div class="col-md-4 mb-3 mb-md-0">
@@ -98,7 +98,7 @@
                 Name</button></a>
           </div>
           <div class="col-md-4">
-            <a id="signout" href="/html/login.html"><button class="btn btn-primary" type="button"
+            <a id="signout" href="../../app/html/login.html"><button class="btn btn-primary" type="button"
                 style="width: 185px;">Sign Out</button></a>
           </div>
 
@@ -115,11 +115,11 @@
   <footer id="navBottomPlaceholder"></footer>
 
   <!-- JS scripts go here -->
-  <script src="/js/navtop_img.js"></script>
-  <script src="/js/skeleton.js"></script>
-  <script src="/js/firebaseAPI_TEAM31.js"></script>
+  <script src="../../public/js/navtop_img.js"></script>
+  <script src="../../public/js/skeleton.js"></script>
+  <script src="../../public/js/firebaseAPI_TEAM31.js"></script>
   <!-- page specific JS go here -->
-  <script src="/js/profile.js" type="module"></script>
+  <script src="../../public/js/profile.js" type="module"></script>
 </body>
 
 </html>

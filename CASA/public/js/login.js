@@ -38,7 +38,7 @@ window.login = function(e){
         console.log(userCredential.user.uid);
         alert("Logged in successfully");
         // after successful login go to landing page alerts.html
-        window.location.href = "/html/alerts.html";
+        window.location.href = "../../app/html/alerts.html";
     })
     .catch(function(err){
         if (err.code === "auth/wrong-password") {

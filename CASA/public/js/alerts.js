@@ -147,7 +147,7 @@ function replaceAlertsPlaceholders() {
     // Loop through each placeholder element
     for (let alert of alertTriggers) {
         $.ajax({
-            url: '/html/alerts/' + alert + '.html',
+            url: '../../app/html/alerts/' + alert + '.html',
             success: function(data) {
               $('#'+alert+'Placeholder').html(data);
             }
@@ -160,7 +160,7 @@ function replaceAlertsPlaceholders() {
 function diplayNone() {
     if (alertTriggers.length == 0) {
         $.ajax({
-            url: '/html/alerts/alertNone.html',
+            url: '../../app/html/alerts/alertNone.html',
             success: function(data) {
                 document.getElementById("weatherAlertPlaceholder").innerHTML = data;
             }
@@ -181,7 +181,7 @@ function prepTipsPage() {
       const buttonId = button.parentNode.id;
 
       // Set the URL for the redirect
-      const url = `/html/tips.html`;
+      const url = `../../app/html/tips.html`;
 
       // Push the button ID to local storage
       localStorage.setItem('buttonId', buttonId);
