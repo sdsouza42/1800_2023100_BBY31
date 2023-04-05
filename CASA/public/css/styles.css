@@ -224,7 +224,7 @@ font-family: 'Montserrat', sans-serif; Body
 #tipSaveButton {
     position:absolute;
     top: 70px;
-    left: 540px;
+    left: 480px;
 }
 #tipSaveButton:hover {
     transform: translateY(-5px);
