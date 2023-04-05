@@ -29,8 +29,10 @@ function insertSavedTips() {
 
         for (let i = 0; i < bookmarks.length; i++) {
             // console.log(bookmarks[i]);
-
-            saveListPlaceholderReplacement += "<button title=\"Read Tip\" id=\""+bookmarks[i]+"\" class=\"goToTipButton\">"+bookmarks[i]+"</button>"; 
+            let buttonText = bookmarks[i].substring(0,1).toUpperCase() + bookmarks[i].substring(1,3) 
+            + "s for " + bookmarks[i].substring(3);
+            saveListPlaceholderReplacement += "<button title=\"Read Tip\" id=\""+bookmarks[i]+"\" class=\"goToTipButton\">"
+            + buttonText + "</button>"; 
         }
 
         // console.log(saveListPlaceholderReplacement);

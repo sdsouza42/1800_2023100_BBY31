@@ -97,8 +97,13 @@ font-family: 'Montserrat', sans-serif; Body
     transform: translateY(-5px);
 }
 
+.navTopButton {
+    transform-origin: top;
+}
+
 .navTopButton:hover {
-    transform: translateY(5px);
+    /* transform: translateY(5px); */
+    transform: scaleY(1.1);
 }
 
 /********************* alerts.html ***********************/
@@ -255,7 +260,14 @@ font-family: 'Montserrat', sans-serif; Body
     border-radius: 10px;
 }
 
+.goToTipButton {
+    font-size: 20pt;
+}
 
+.goToTipButton:hover {
+    background-color: #8a2be2;
+    color: #ddcbff;
+}
 
 /********************* login.html ***********************/
 #container_logo_img {
