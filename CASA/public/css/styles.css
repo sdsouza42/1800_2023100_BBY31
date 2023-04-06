@@ -1,7 +1,5 @@
 /********************* For all pages ***********************/
 body {
-    max-width: 100%;
-    height: 100%;
     /* max-width: 600px; */
     font-family: 'Montserrat', sans-serif;
 }
@@ -226,7 +224,7 @@ font-family: 'Montserrat', sans-serif; Body
 #tipSaveButton {
     position:absolute;
     top: 70px;
-    left: 480px;
+    left: calc(100% - 120px);
 }
 #tipSaveButton:hover {
     transform: translateY(-5px);
