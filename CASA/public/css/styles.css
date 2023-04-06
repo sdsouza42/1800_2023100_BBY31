@@ -1,6 +1,8 @@
 /********************* For all pages ***********************/
 body {
-    max-width: 600px;
+    max-width: 100%;
+    height: 100%;
+    /* max-width: 600px; */
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -63,7 +65,7 @@ font-family: 'Montserrat', sans-serif; Body
     color: white;
     height: 60px;
     width: 100%;
-    max-width: 600px;
+    /* max-width: 600px; */
     display: flex;
     justify-content: space-between;
     font-family: 'Lato', sans-serif;
@@ -88,7 +90,7 @@ font-family: 'Montserrat', sans-serif; Body
     color: white;
     height: 60px;
     width: 100%;
-    max-width: 600px;
+    /* max-width: 600px; */
     display: flex;
     justify-content: space-between;
 }
@@ -418,4 +420,9 @@ body {
     margin-top: 60px;
     margin-bottom: 60px;
     background-image: linear-gradient(to bottom, #59516e, #7b738b, #ded6dc);
+}
+
+.navBarFix{
+    padding-bottom: 80px;
+    padding-top: 80px;
 }
