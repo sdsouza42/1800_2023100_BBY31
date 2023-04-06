@@ -1,6 +1,6 @@
 /********************* For all pages ***********************/
 body {
-    max-width: 600px;
+    /* max-width: 600px; */
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -63,7 +63,7 @@ font-family: 'Montserrat', sans-serif; Body
     color: white;
     height: 60px;
     width: 100%;
-    max-width: 600px;
+    /* max-width: 600px; */
     display: flex;
     justify-content: space-between;
     font-family: 'Lato', sans-serif;
@@ -88,7 +88,7 @@ font-family: 'Montserrat', sans-serif; Body
     color: white;
     height: 60px;
     width: 100%;
-    max-width: 600px;
+    /* max-width: 600px; */
     display: flex;
     justify-content: space-between;
 }
@@ -224,7 +224,7 @@ font-family: 'Montserrat', sans-serif; Body
 #tipSaveButton {
     position:absolute;
     top: 70px;
-    left: 480px;
+    left: calc(100% - 120px);
 }
 #tipSaveButton:hover {
     transform: translateY(-5px);
