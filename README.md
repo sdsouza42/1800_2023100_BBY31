@@ -20,8 +20,8 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
 Here are the steps ...
-* 
-* 
+* Visit https://comp1800-bby31.web.app/
+* Register for a new account or login
 * 
 
 ## 5. Known Bugs and Limitations
@@ -33,8 +33,9 @@ Here are some known bugs:
 ## 6. Features for Future
 What we'd like to build in the future:
 * Current weather API only checks 5 days forecast using Open Weather API. They have a 16day forecast I would have liked to use but you need to buy a subscription.
-* Current weather API reads only for Vancouver because of API free account limitations. W would like to setup so user can set their own location from a variety of cities worldwide.
-* ...
+* Current weather API reads only for Vancouver because of API free account limitations. We would like to make it so the user can set their own location from a variety of cities worldwide.
+* Add more filtering options for tradespersons.
+* Implement a review system for tradespersons where users can leave ratings/reviews for a tradesperson. 
 	
 ## 7. Contents of Folder
 Content of the project folder:

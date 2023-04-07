@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "expres": "^0.0.5",
-    "express": "^4.18.2",
-    "firebase-tools": "^11.25.3"
-  }
-}
