@@ -5,28 +5,26 @@ Our team BBY31 is developing an app to help homeowners and tenants prepare their
 
 ## 2. Names of Contributors
 List team members and/or short bio's here...  
-* Eddie Xu
-* Felix Wei
-* Savio Dsouza
-* ...
+* Felix Wei, BCIT CST student term 1
+* Eddie Xu, BCIT CST student term 1
+* Savio Dsouza, BCIT CST student term 1
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
 * HTML, CSS, JavaScript
 * Bootstrap 5.0 (Frontend library)
 * Firebase 8.0 (BAAS - Backend as a Service)
-* ...
 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
 Here are the steps ...
 * Visit https://comp1800-bby31.web.app/
 * Register for a new account or login
-* 
+* Go to landing page and explore!
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
-* In alerts.js, all weather trigger if statements also have an OR TRUE statement just to show them regardless of actual weather conditions for the purposes of testing and demo 
+* In alerts.js, all weather-trigger-if-statements currently also have an OR TRUE in their condition just to show them regardless of actual weather conditions for the purposes of testing and demo 
 * ...
 * ...
 
@@ -56,7 +54,6 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── app/html/                	 # contains all html pages 
 	alerts.html			# landing page, shows weather alerts
-	googlemap.html			
 	login.html			# login page
 	navBottom.html			# skeleton for all pages
 	navTop.html			# skeleton for all pages
@@ -80,7 +77,6 @@ It has the following subfolders and files:
 	firebaseAPI_TEAM31.js		# links firebase
 	login.js			# login page
 	navtop_img.js			# makes user image display across pages
-	popup.js			
 	profile.js			# user profile page
 	rating.js			# for ratings system, currently defunct
 	reset.js			# reset password page
@@ -94,9 +90,9 @@ It has the following subfolders and files:
 ├── pulbic/css/           	  # Folder for styles
     styles.css    	    		# contains all css used 
 ├── public/img/           	  # Folder for images
-          	        # 
-
-
+        /Navbar			        # contains images used for navbar icons, sourced from https://icons.getbootstrap.com/
+	/Tips				# contains images paired with tips to give visual illustration, various sources from google images
+	/Weather			# contains images paired with weather alerts to give visual illustration, various sources from google images
 ```
 
 
