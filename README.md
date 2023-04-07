@@ -90,9 +90,34 @@ It has the following subfolders and files:
 ├── pulbic/css/           	  # Folder for styles
     styles.css    	    		# contains all css used 
 ├── public/img/           	  # Folder for images
-        /Navbar			        # contains images used for navbar icons, sourced from https://icons.getbootstrap.com/
-	/Tips				# contains images paired with tips to give visual illustration, various sources from google images
-	/Weather			# contains images paired with weather alerts to give visual illustration, various sources from google images
+        /Navbar/		        # contains images used for navbar icons, sourced from https://icons.getbootstrap.com/
+	/Tips/				# contains images paired with tips to give visual illustration, various sources from google images
+		AirConditioning.jpg 		# src: https://www.wikihow.com/Install-a-Split-System-Air-Conditioner
+		BlackoutBlinds.jpg		# src: https://www.selectblindscanada.ca/roller-shades/super-value-vinyl-blackout-roller-shades.html
+		DisconnectHose.jpg		# src: https://www.thespruce.com/winterize-outside-faucets-2718702
+		Grade.png			# src: https://www.handymanusa.com/articles/drybasement.html
+		Gutters.jpg			# src: https://www.gutterhelmet.com/blog/3-obvious-signs-that-your-gutters-need-cleaning/
+		Insulate.jpg			# src: https://www.reenergizeco.com/blog/seal-attic-air-leaks/
+		Pipes.jpg			# src: https://www.homedepot.com/c/ah/how-to-prevent-pipes-from-freezing/9ba683603be9fa5395fab905760afb9
+		RainGarden.png			# src: https://canadablooms.com/what-is-a-rain-garden/
+		ReflectiveRoof.png		# src: https://aboveall.net/roofing/metal-roofs/
+		ReinforceGaradeDoor.jpg		# src: https://raynor.com/hurricane-ready-garage-doors/
+		ReinforceWalls.jpg		# src: https://www.homedepot.com/p/Simpson-Strong-Tie-9-x-1-1-2-in-1-4-Hex-Drive-Strong-Drive-SD-Connector-Screw-100-Pack-SD9112R100/202071152
+		ReinforceWindows.jpg		# src: https://www.pella.com/performance/impact-resistance/understanding-hurricane-windows/
+		SealGaps.jpg			# src: https://www.homeserve.com/en-us/blog/how-to/install-prehung-door/
+		SecureFurniture.jpg		# src: https://www.wikihow.com/Secure-Patio-Furniture-from-Wind
+		Shade.jpg			# src: https://www.homedepot.com/c/ai/deck-shade-ideas/9ba683603be9fa5395fab901d7af4385
+		Shingle.jpg			# src: https://www.wheatlandroofing.com/services/roof-maintenance
+		SpoutAway.jpg			# src: https://homeinspectiongeeks.com/keeping-your-gutter-system-in-order-can-save-you-big-money/
+		TrimTrees.jpg			# src: https://www.wikihow.com/Cut-a-Limb-from-a-Tree
+		WindowLeak.jpg			# src: https://www.ecolinewindows.ca/leaking-windows/
+		WindowWellCover.png		# src: https://windowwellcovers.com/shop/covers/bubbles/68-x-24-bubble-window-well-cover/
+	/Weather/			# contains images paired with weather alerts to give visual illustration, various sources from google images
+		Goodweather1.jpg		# src: https://watv.org/faith_life/good-weather/
+		HeatWave1.jpg			# src: https://geographical.co.uk/climate-change/geoengineering-to-block-out-the-sun
+		Rain1.jpg			# src: https://kitchener.ctvnews.ca/up-to-50-mm-of-rain-possible-by-tuesday-in-waterloo-wellington-1.5934312
+		Snowfall1.jpg			# src: https://www.istockphoto.com/photo/pedestrians-crossing-the-street-on-a-snowy-day-gm535513443-57491002
+		Wind1.png			# src: https://vancouver.citynews.ca/2023/01/05/metro-vancouver-wind-storm/
 ```
 
 
