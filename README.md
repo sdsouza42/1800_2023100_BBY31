@@ -1,4 +1,4 @@
-# Project Title
+# CASA - Connecting local trade with Homeowners and Tenants for Extreme Weather Preparedness
 
 ## 1. Project Description
 Our team BBY31 is developing an app to help homeowners and tenants prepare their home for extreme weather by notifying them of recommended actions and suggesting local services to fulfill their home needs.
